@@ -1,14 +1,17 @@
 /* Navigation Bar */
 
 .navbar {
-    padding: 0 0 1.5rem;
+    padding: 0 0 .1rem;
     margin-top: 0 !important;
   }
   
   .navbar-brand {
     font-family: "Ubuntu";
-    font-size: 1.5rem;
+    font-size: 2.5rem;
     font-weight: bold;
+    padding-top: .5rem;
+    padding-left: 1rem;
+    padding-bottom: .5rem;
   }
   
   .nav-item {
@@ -19,6 +22,11 @@
     font-size: 1.2rem;
     font-family: "Montserrat-Light";
   }
+
+  #navbarTogglerDemo02 {
+    padding-top: .5rem;
+    padding-right: .4rem;
+   }
 
 
 
