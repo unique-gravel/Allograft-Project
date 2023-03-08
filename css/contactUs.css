@@ -1,8 +1,9 @@
 /* Navigation Bar */
 
 .navbar {
-  padding: 0 0 1.5rem;
+  padding: 0 0;
   margin-top: 0 !important;
+  background-color: rgb(0,0,0) !important;
 }
 
 .navbar-brand {
@@ -12,7 +13,11 @@
 }
 
 .nav-item {
-  padding: 0 10px;
+  /* padding: 0 10px; */
+}
+
+#logo {
+  padding: 20px;
 }
 
 .nav-link {
@@ -57,7 +62,7 @@ background-size: 40px 60px; */
   background: #fff;
   border-radius: 6px;
   padding: 20px 60px 30px 40px;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 5px 10px rgba(0, 0, 0,0.2);
 }
 .container .content {
   display: flex;
