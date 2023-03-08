@@ -1,42 +1,54 @@
 /* Navigation Bar */
 
 .navbar {
-    padding: 0 0 1.5rem;
-    margin-top: 0 !important;
-  }
-  
-  .navbar-brand {
-    font-family: "Ubuntu";
-    font-size: 1.5rem;
-    font-weight: bold;
-  }
-  
-  .nav-item {
-    padding: 0 10px;
-  }
-  
-  .nav-link {
-    font-size: 1.2rem;
-    font-family: "Montserrat-Light";
-  }
+  padding: 0 0 1.5rem;
+  margin-top: 0 !important;
+}
 
+.navbar-brand {
+  font-family: "Ubuntu";
+  font-size: 1.5rem;
+  font-weight: bold;
+}
 
+.nav-item {
+  padding: 0 10px;
+}
 
+.nav-link {
+  font-size: 1.2rem;
+  font-family: "Montserrat-Light";
+}
 
 /* Google Font CDN Link */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
-*{
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Poppins" , sans-serif;
+  font-family: "Poppins", sans-serif;
 }
-body{
+body {
   min-height: 100vh;
   width: 100%;
-  background: #f4b13e;
+  background: #fffe7a;
+
+  /* background:
+radial-gradient(circle farthest-side at 0% 50%,#fb1 23.5%,rgba(240,166,17,0) 0)21px 30px,
+radial-gradient(circle farthest-side at 0% 50%,#B71 24%,rgba(240,166,17,0) 0)19px 30px,
+linear-gradient(#fb1 14%,rgba(240,166,17,0) 0, rgba(240,166,17,0) 85%,#fb1 0)0 0,
+linear-gradient(150deg,#fb1 24%,#B71 0,#B71 26%,rgba(240,166,17,0) 0,rgba(240,166,17,0) 74%,#B71 0,#B71 76%,#fb1 0)0 0,
+linear-gradient(30deg,#fb1 24%,#B71 0,#B71 26%,rgba(240,166,17,0) 0,rgba(240,166,17,0) 74%,#B71 0,#B71 76%,#fb1 0)0 0,
+linear-gradient(90deg,#B71 2%,#fb1 0,#fb1 98%,#B71 0%)0 0 #fb1;
+background-size: 40px 60px; */
+
+  /* background: radial-gradient(1.5em 6.28571em at 1.95em, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0.25) 50%, rgba(255, 255, 255, 0.25) 55%, rgba(255, 255, 255, 0) 55%) 0 0, radial-gradient(1.5em 6.28571em at -0.45em, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0.25) 50%, rgba(255, 255, 255, 0.25) 55%, rgba(255, 255, 255, 0) 55%) 1.5em 5.5em, radial-gradient(2.3em 4.57143em at 2.99em, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0.3) 50%, rgba(255, 255, 255, 0.3) 55%, rgba(255, 255, 255, 0) 55%) 0 0, radial-gradient(2.3em 4.57143em at -0.69em, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0.3) 50%, rgba(255, 255, 255, 0.3) 55%, rgba(255, 255, 255, 0) 55%) 2.3em 4em, radial-gradient(3.5em 6.28571em at 4.55em, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0.25) 50%, rgba(255, 255, 255, 0.25) 55%, rgba(255, 255, 255, 0) 55%) 0 0, radial-gradient(3.5em 6.28571em at -1.05em, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0.25) 50%, rgba(255, 255, 255, 0.25) 55%, rgba(255, 255, 255, 0) 55%) 3.5em 5.5em, radial-gradient(#ffef00, #00ced1);
+  background-color: mediumspringgreen;
+
+  background-size: 1.5em 11em, 1.5em 11em, 2.3em 8em, 2.3em 8em, 3.5em 11em, 3.5em 11em, 100% 100%;
+  background-repeat: repeat; */
 }
-.container{
+.container {
   margin-top: 5%;
   display: flex;
   align-items: center;
@@ -47,12 +59,12 @@ body{
   padding: 20px 60px 30px 40px;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 }
-.container .content{
+.container .content {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
-.container .content .left-side{
+.container .content .left-side {
   width: 25%;
   height: 100%;
   display: flex;
@@ -62,8 +74,8 @@ body{
   margin-top: 15px;
   position: relative;
 }
-.content .left-side::before{
-  content: '';
+.content .left-side::before {
+  content: "";
   position: absolute;
   height: 70%;
   width: 2px;
@@ -72,61 +84,61 @@ body{
   transform: translateY(-50%);
   background: #afafb6;
 }
-.content .left-side .details{
+.content .left-side .details {
   margin: 14px;
   text-align: center;
 }
-.content .left-side .details i{
+.content .left-side .details i {
   font-size: 30px;
   color: #3e2093;
   margin-bottom: 10px;
 }
-.content .left-side .details .topic{
+.content .left-side .details .topic {
   font-size: 18px;
   font-weight: 500;
 }
 .content .left-side .details .text-one,
-.content .left-side .details .text-two{
+.content .left-side .details .text-two {
   font-size: 14px;
   color: #afafb6;
 }
-.container .content .right-side{
+.container .content .right-side {
   width: 75%;
   margin-left: 75px;
 }
-.content .right-side .topic-text{
+.content .right-side .topic-text {
   font-size: 23px;
   font-weight: 600;
   color: #3e2093;
 }
-.right-side .input-box{
+.right-side .input-box {
   height: 50px;
   width: 100%;
   margin: 12px 0;
 }
 .right-side .input-box input,
-.right-side .input-box textarea{
+.right-side .input-box textarea {
   height: 100%;
   width: 100%;
   border: none;
   outline: none;
   font-size: 16px;
-  background: #F0F1F8;
+  background: #f0f1f8;
   border-radius: 6px;
   padding: 0 15px;
   resize: none;
 }
-.right-side .message-box{
+.right-side .message-box {
   min-height: 110px;
 }
-.right-side .input-box textarea{
+.right-side .input-box textarea {
   padding-top: 6px;
 }
-.right-side .button{
+.right-side .button {
   display: inline-block;
   margin-top: 12px;
 }
-.right-side .button input[type="button"]{
+.right-side .button input[type="button"] {
   color: #fff;
   font-size: 18px;
   outline: none;
@@ -137,41 +149,40 @@ body{
   cursor: pointer;
   transition: all 0.3s ease;
 }
-.button input[type="button"]:hover{
+.button input[type="button"]:hover {
   background: #5029bc;
 }
 
 @media (max-width: 950px) {
-  .container{
+  .container {
     width: 90%;
-    padding: 30px 40px 40px 35px ;
+    padding: 30px 40px 40px 35px;
   }
-  .container .content .right-side{
-   width: 75%;
-   margin-left: 55px;
-}
+  .container .content .right-side {
+    width: 75%;
+    margin-left: 55px;
+  }
 }
 @media (max-width: 820px) {
-  .container{
+  .container {
     margin: 40px 40px;
     height: 100%;
   }
-  .container .content{
+  .container .content {
     flex-direction: column-reverse;
   }
- .container .content .left-side{
-   width: 100%;
-   flex-direction: row;
-   margin-top: 40px;
-   justify-content: center;
-   flex-wrap: wrap;
- }
- .container .content .left-side::before{
-   display: none;
- }
- .container .content .right-side{
-   width: 100%;
-   margin-left: 0;
- }
+  .container .content .left-side {
+    width: 100%;
+    flex-direction: row;
+    margin-top: 40px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .container .content .left-side::before {
+    display: none;
+  }
+  .container .content .right-side {
+    width: 100%;
+    margin-left: 0;
+  }
 }
-
