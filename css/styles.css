@@ -79,6 +79,7 @@ p {
 .landing-image {
   position: absolute;
   filter: brightness(40%);
+  
 }
 
 /* Buttons */
