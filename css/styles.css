@@ -157,7 +157,11 @@ p {
 /* Testimonial Section */
 
 #testimonials {
-  background-color: #ef8172;
+  background-color: #f4b13e;
+}
+
+h2{
+  color:white;
 }
 
 .testimonial-text {
@@ -166,10 +170,9 @@ p {
 }
 
 .testimonial-image {
-  width: 10%;
-  border-radius: 100%;
   margin: 20px;
 }
+
 
 
 #press {
