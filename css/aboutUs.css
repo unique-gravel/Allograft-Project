@@ -1,0 +1,180 @@
+/* Navigation Bar */
+
+.navbar {
+padding: 0 0;
+margin-top: 0 !important;
+background-color: rgb(0,0,0, 0.75) !important;
+}
+
+
+.navbar-brand {
+font-family: "Ubuntu";
+font-size: 1.5rem;
+font-weight: bold;
+}
+
+.nav-item {
+padding: 0 10px;
+}
+
+#logo {
+padding: 20px;
+}
+
+.nav-link {
+font-size: 1.2rem;
+font-family: "Montserrat-Light";
+}
+
+#navbarTogglerDemo02 {
+padding-top: .5rem;
+padding-right: .4rem;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+*{
+    margin: 0%;
+    padding: 0px;
+    /* display: flexbox; */
+    box-sizing: border-box; 
+    line-height: 1.5;
+    font-family: 'Roboto', sans-serif;
+}
+body{
+    width: 100%;
+    min-height: 100vh;
+    background-color: #e5dbdb;
+}
+.about-us{
+    width: 100%;
+}
+.about-us h1{
+    text-align: center;
+    font-size: 83px;
+    color: #624aa3;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+/* .about-us h1::after{
+    content: "";
+    height: 5px;
+    width: 200px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    display: block;
+    margin: auto;
+} */
+.wrapper{
+    padding: 0px  60px;
+    margin: 60px auto;
+}
+.content{
+    width: 60%;
+    float: left;
+    text-align: left;
+    padding: 0px 30px;
+}
+.content h3{
+    color: #624aa3;
+    letter-spacing: 1px;
+}
+.content p{
+    font-family: sans-serif;
+    font-size: 18px;
+    color: #000000;
+    margin-top: 20px;
+}
+.content .button{
+    margin-top: 40px;
+}
+.content .button a{
+    color: #fff;
+    background-color: #624aa3;
+    border: 1px solid #624aa3;
+    padding: 10px 35px;
+    text-decoration: none;
+    letter-spacing: 1px;
+    font-size: 22px;
+    text-transform: uppercase;   
+}
+.content .button a:hover{
+    background-color: #fff;
+    color: #2b9ec2;
+}
+.content .social{
+    margin-top: 30px;
+    margin-left: 15px;
+}
+.content .social a{
+    text-decoration: none;
+    color: #222;
+    font-size: 25px;
+    padding: 0px 7px;
+}
+.content .social a:hover{
+    color: #2b9ec2;
+    transition: 1s ease;
+}
+.content .social i{
+    height: 40px;
+    width: 40px;
+    background-color: #fff;
+    border: 1px solid #222;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 40px;
+}
+
+.image-section{
+    width: 33%;
+    padding: 0px 0px 23px;
+    float: right;
+}
+.image-section img{
+    max-width: 100%;
+    height: auto;
+}
+@media screen and (max-width: 900px){
+    .about-us{
+        width:100%;
+        padding-top: 20px;
+    }
+    .about-us h1{
+        font-size: 32px;
+    }
+    .content{
+        width: 100%;
+        float: none;
+    }
+    .content .button{
+        margin-top: 30px;
+        text-align: center;
+    }
+    .content .button a{
+        padding: 8px 25px;
+    }
+    .content .social a{
+        font-size: 21px;
+    }
+    .image-section{
+        float: none;
+        width: 100%;
+        margin: top 25px; ;
+    }
+}
+
+.footer {
+    display: flex; 
+    padding: 10px 0; 
+    text-align: center; 
+    justify-content: center; 
+    align-items: center; 
+    background-color: rgb(0,0,0,.70); 
+    color: rgba(255, 255, 255, 0.726); 
+    font-family: "Ubuntu";
+    width: 100%;
+    position: static;
+    margin-bottom: 0px;
+  }
