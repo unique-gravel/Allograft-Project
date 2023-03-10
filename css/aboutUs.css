@@ -1,35 +1,36 @@
 /* Navigation Bar */
 
 .navbar {
-padding: 0 0;
-margin-top: 0 !important;
-background-color: rgb(0,0,0, 0.75) !important;
-}
-
-
-.navbar-brand {
-font-family: "Ubuntu";
-font-size: 1.5rem;
-font-weight: bold;
-}
-
-.nav-item {
-padding: 0 10px;
-}
-
-#logo {
-padding: 20px;
-}
-
-.nav-link {
-font-size: 1.2rem;
-font-family: "Montserrat-Light";
-}
-
-#navbarTogglerDemo02 {
-padding-top: .5rem;
-padding-right: .4rem;
-}
+    padding: 0 0 .1rem;
+    background-color: rgb(0,0,0,0.70);
+  }
+  
+  #logo {
+    padding: 20px;
+  }
+  
+  .navbar-brand {
+    font-family: "Ubuntu";
+    font-size: 2.5rem;
+    font-weight: bold;
+    padding-top: .5rem;
+    padding-left: 1rem;
+    padding-bottom: .5rem;
+  }
+  
+  .nav-item {
+    padding: 0 10px;
+  }
+  
+  .nav-link {
+    font-size: 1.2rem;
+    font-family: "Montserrat-Light";
+  }
+  
+  #navbarTogglerDemo02 {
+    padding-top: .5rem;
+    padding-right: .4rem;
+  }
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 *{
