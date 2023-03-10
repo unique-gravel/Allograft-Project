@@ -8,7 +8,7 @@
   
 .navbar-brand {
     font-family: "Ubuntu";
-    font-size: 1.5rem;
+    font-size: 1rem;
     font-weight: bold;
 }
   
@@ -17,7 +17,7 @@
 }
   
 #logo {
-    padding: 20px;
+    padding: 7px;
 }
   
 .nav-link {
@@ -37,4 +37,13 @@
     width: 100%;
     position: static;
     margin-bottom: 0px;
+}
+
+body {
+    background: #e4f9f5;
+}
+.faq{
+    align-items: center;
+    padding: 5%;
+    
 }
