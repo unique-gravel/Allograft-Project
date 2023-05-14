@@ -1,0 +1,131 @@
+.td {
+    text-align: center;
+}
+
+body {
+    font-family: "Montserrat";
+    text-align: center;
+    background-color: aquamarine;
+  }
+  
+
+/* Navigation Bar */
+
+.navbar {
+    padding: 0 0 .1rem;
+    background-color: rgb(0,0,0,0.70);
+  }
+
+#logo {
+    padding: 20px;
+  }
+  
+  .navbar-brand {
+    font-family: "Ubuntu";
+    font-size: 2.5rem;
+    font-weight: bold;
+    padding-top: .5rem;
+    padding-left: 1rem;
+    padding-bottom: .5rem;
+  }
+  
+  .nav-item {
+    padding: 0 10px;
+  }
+  
+  .nav-link {
+    font-size: 1.2rem;
+    font-family: "Montserrat-Light";
+  }
+  
+  #navbarTogglerDemo02 {
+    padding-top: .5rem;
+    padding-right: .4rem;
+  }
+  
+  .landing-image {
+    position: absolute;
+    filter: brightness(40%);
+    
+  }
+  
+  .dropdown {
+    display:block;
+    position: relative;
+  }
+  
+  button{
+    border: 5px;
+    border-radius:5px;
+    padding-top: 8px;
+    cursor:pointer;
+    background: none;
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.726);
+    font-family: "Montserrat-Light";
+  }
+  
+  button:hover{
+    background-color:none;
+  }
+  
+  .dropdown-options {
+    display: none;
+    position:fixed;
+    overflow: auto;
+    background-color:rgb(0,0,0,0.70);
+    border-radius:none;
+    box-shadow: 0px 10px 10px 0px rgba(0, 0, 0, 0.358);
+  }
+  
+  .dropdown:hover .dropdown-options {
+    display: ruby-base;
+  }
+  
+  .dropdown-options a {
+    display: block;
+    font-family: "Montserrat-Light";
+    color: rgba(255, 255, 255, 0.726);
+    padding: 5px;
+    text-decoration: none;
+    padding:10px 10px;
+  }
+  
+  .dropdown-options a:hover {
+    color: rgba(0, 0, 0, 0.689);
+    background-color: rgba(255, 255, 255, 0.726);
+    border-radius:5px;
+  }
+
+
+  .container {
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+    /* height: 100vh; */
+  }
+
+  .box {
+    /* width: 300px; */
+    padding: 15px;
+    border: 2px solid #000000;
+    border-radius: 5px;
+    background-color: #ffffff85;
+    text-align: center;
+  }
+  
+  .footer {
+    display: flex; 
+    padding: 10px 0; 
+    text-align: center; 
+    justify-content: center; 
+    align-items: center; 
+    background-color: rgb(0,0,0,.70); 
+    color: rgba(255, 255, 255, 0.726); 
+    font-family: "Ubuntu";
+    width: 100%;
+    position:absolute;
+    margin-bottom: 0px;
+    left: 0;
+    bottom: 0;
+  }

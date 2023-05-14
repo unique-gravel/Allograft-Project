@@ -1,3 +1,12 @@
+<?php 
+error_reporting (E_ALL ^ E_NOTICE); 
+session_start(); 
+$userID = $_SESSION['userID'];  
+$username = $_SESSION['username']; 
+$databaseTitle = $_SESSION['title']; 
+$databaseUserType = $_SESSION['userType']; 
+$datebasePatientFlag = $_SESSION['patientFlag']; 
+?>
 <!DOCTYPE html>
 
 <html lang="en" dir="ltr">
@@ -51,65 +60,100 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   </head>
   <body>
-    <!-- nav bar
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <!-- Nav Bar -->
 
-        <a class="navbar-brand" href="index.html">AnshDaan</a>
+      <nav class="navbar navbar-expand-lg navbar-dark">
+        <!-- <a class="navbar-brand" href="index.html">AnshDaan</a> -->
+        <a href="index.php"
+          ><img id="logo" src="images/logo_AnshDaan.png" , width="200px"
+        /></a>
 
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02">
-            <span class="navbar-toggler-icon"></span>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarTogglerDemo02"
+        >
+          <span class="navbar-toggler-icon"></span>
         </button>
 
-        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-
+        <div
+          class="collapse navbar-collapse navbar_text"
+          id="navbarTogglerDemo02"
+        >
           <ul class="navbar-nav ml-auto">
+
             <li class="nav-item">
-              <a class="nav-link" href="#footer">Contact</a>
+              <a class="nav-link" href="contact_us.php">Contact</a>
             </li>
+
             <li class="nav-item">
-              <a class="nav-link" href="#pricing">Pricing</a>
+              <a class="nav-link" href="faq.php">FAQs</a>
             </li>
+
             <li class="nav-item">
-              <a class="nav-link" href="#cta">Download</a>
+              <a class="nav-link" href="about_us.php">About Us</a>
             </li>
+
+            <?php
+              if(!$userID)
+                {
+                  echo "<li class='nav-item'>
+                          <div>
+                            <button>Register</button>
+                            <div class='dropdown-content'>
+                              <div class='dropdown-options'>
+                                <a href='register.php'>Donor/Recipient</a>
+                                <a href='staff_register.php'>Doctor/Staff</a>
+                              </div>
+                            </div>
+                          </div>
+                        </li>";
+                }
+            ?>
+
+            <?php
+              if(!$username) {
+                echo "<li  class='nav-item'><a class='nav-link' href='login.php'>Login</a></li>"; 
+              } 
+              ?>
+
+            <?php
+                if($userID && $databaseUserType != "0") 
+                { 
+                  echo "<li class='nav-item'><a class='nav-link' href='reports.php'>Reports</a></li>"; 
+                }
+                if($userID && ($databaseUserType == "1"))
+                {
+                  echo "<li class='nav-item'><a class='nav-link' href='matching.php'>Matching</a></li>";
+                } 
+            ?>
+            
+            <?php 
+              if($userID && ($databaseUserType == "2"))	
+              {
+              echo "<li class='nav-item'><a class='nav-link' href='scheduler.php'>Scheduler</a></li>";
+              } 
+            ?>
+              
+            <?php 
+              if($userID) {
+                echo "<li class='nav-item'><a class='nav-link' href='POA_Management.php'>Power Of Attorney</a></li>";
+                echo "<li class='nav-item'><a class='nav-link' href='logout.php'>Logout</a></li>";
+              } 
+            ?>
+  
+            <?php
+              if($userID)
+              {
+                echo "<li class='nav-item'> <a class='nav-link' href='profile.php'>Hello, {$username}</a>"; 
+              }
+            ?>
+                
           </ul>
-
         </div>
-      </nav> -->
-    <!-- Nav Bar -->
-
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <!-- <a class="navbar-brand" href="index.html">AnshDaan</a> -->
-      <a href="index.html"
-        ><img id="logo" src="images/logo_AnshDaan.png" , width="200px"
-      /></a>
-
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-toggle="collapse"
-        data-target="#navbarTogglerDemo02"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="contact_us.html">Contact</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="faq.html">FAQs</a>
-          </li>
-          <!-- <li class="nav-item">
-            <a class="nav-link" href="#cta">Download</a>
-          </li> -->
-          <li class="nav-item">
-            <a class="nav-link" href="about_us.html">About Us</a>
-          </li>
-        </ul>
-      </div>
-    </nav>
+      </nav>
+      <!-- Navigation Bar End -->
 
     <!-- form -->
     <div class="container">

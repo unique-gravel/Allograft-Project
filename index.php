@@ -1,3 +1,12 @@
+<?php 
+error_reporting (E_ALL ^ E_NOTICE); 
+session_start(); 
+$userID = $_SESSION['userID'];  
+$username = $_SESSION['username']; 
+$databaseTitle = $_SESSION['title']; 
+$databaseUserType = $_SESSION['userType']; 
+$datebasePatientFlag = $_SESSION['patientFlag']; 
+?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -47,22 +56,18 @@
   </head>
 
   <body>
-    <section class="colored-section" id="title">
+      <!-- Nav Bar -->
+      <section class="colored-section" id="title">
       <div class="landing-image">
         <img
           src="images/person-holding-anatomic-heart-model-educational-purpose.jpg"
-          width="1471px"
-          height="700px"
+          width="1600px"
+          height="730px"
         />
       </div>
-
-      <!-- Nav Bar -->
-
       <nav class="navbar navbar-expand-lg navbar-dark">
         <!-- <a class="navbar-brand" href="index.html">AnshDaan</a> -->
-        <a href="index.html"
-          ><img id="logo" src="images/logo_AnshDaan.png" , width="200px"
-        /></a>
+        <a href="index.php"><img id="logo" src="images/logo_AnshDaan.png" , width="200px"/></a>
 
         <button
           class="navbar-toggler"
@@ -78,21 +83,81 @@
           id="navbarTogglerDemo02"
         >
           <ul class="navbar-nav ml-auto">
+
             <li class="nav-item">
-              <a class="nav-link" href="contact_us.html">Contact</a>
+              <a class="nav-link" href="contact_us.php">Contact</a>
             </li>
+
             <li class="nav-item">
-              <a class="nav-link" href="faq.html">FAQs</a>
+              <a class="nav-link" href="faq.php">FAQs</a>
             </li>
+
             <li class="nav-item">
-              <a class="nav-link" href="about_us.html">About Us</a>
+              <a class="nav-link" href="about_us.php">About Us</a>
             </li>
+
+            <?php
+              if(!$userID)
+                {
+                  echo "<li class='nav-item'>
+                          <div>
+                            <button>Register</button>
+                            <div class='dropdown-content'>
+                              <div class='dropdown-options'>
+                                <a href='register.php'>Donor/Recipient</a>
+                                <a href='staff_register.php'>Doctor/Staff</a>
+                              </div>
+                            </div>
+                          </div>
+                        </li>";
+                }
+            ?>
+
+            <?php
+              if(!$username) {
+                echo "<li  class='nav-item'><a class='nav-link' href='login.php'>Login</a></li>"; 
+              } 
+              ?>
+
+            <?php
+                if($userID && $databaseUserType != "0") 
+                { 
+                  echo "<li class='nav-item'><a class='nav-link' href='reports.php'>Reports</a></li>"; 
+                }
+                if($userID && ($databaseUserType == "1"))
+                {
+                  echo "<li class='nav-item'><a class='nav-link' href='matching.php'>Matching</a></li>";
+                } 
+            ?>
+            
+            <?php 
+              if($userID && ($databaseUserType == "2"))	
+              {
+              echo "<li class='nav-item'><a class='nav-link' href='scheduler.php'>Scheduler</a></li>";
+              } 
+            ?>
+              
+            <?php 
+              if($userID) {
+                echo "<li class='nav-item'><a class='nav-link' href='POA_Management.php'>Power Of Attorney</a></li>";
+                echo "<li class='nav-item'><a class='nav-link' href='logout.php'>Logout</a></li>";
+              } 
+            ?>
+  
+            <?php
+              if($userID)
+              {
+                echo "<li class='nav-item'> <a class='nav-link' href='profile.php'>Hello, {$username}</a>"; 
+              }
+            ?>
+                
           </ul>
         </div>
       </nav>
+      <!-- Navigation Bar End -->
 
       <!-- Title -->
-
+      </div>
       <div class="container-fluid">
         <div class="row">
           <div class="col-lg-6">
@@ -101,9 +166,6 @@
             </h1>
             <h1 class="big-heading">Pleadge organs and save upto 8 lives</h1>
           </div>
-          <!-- <div class="col-lg-6">
-          <img class="title-image" src="images/yunus-tug-1-Mm4q2BW5w-unsplash.jpg" alt="iphone-mockup">
-        </div> -->
         </div>
       </div>
     </section>
@@ -260,61 +322,6 @@
       </div>
     </section>
 
-
-      <!-- Footer -->
-  <footer class="bg-white footer-logos">
-    <div class="container py-5 px-500">
-      <div class="py-4">
-        <div class=""><img src="img/logo.png" alt="" width="180" class="mb-3">
-          <p class="font-italic text-muted">AnshDaan - Give the gift of life</p>
-          <ul class="list-inline mt-4">
-            <li class="list-inline-item"><a href="#" target="_blank" title="twitter"><i class="fa fa-twitter"></i></a></li>
-            <li class="list-inline-item"><a href="#" target="_blank" title="facebook"><i class="fa fa-facebook"></i></a></li>
-            <li class="list-inline-item"><a href="#" target="_blank" title="instagram"><i class="fa fa-instagram"></i></a></li>
-            <li class="list-inline-item"><a href="#" target="_blank" title="pinterest"><i class="fa fa-pinterest"></i></a></li>
-            <li class="list-inline-item"><a href="#" target="_blank" title="vimeo"><i class="fa fa-vimeo"></i></a></li>
-          </ul>
-        </div>
-        <!-- <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
-          <h6 class="text-uppercase font-weight-bold mb-4">Shop</h6>
-          <ul class="list-unstyled mb-0">
-            <li class="mb-2"><a href="#" class="text-muted">For Women</a></li>
-            <li class="mb-2"><a href="#" class="text-muted">For Men</a></li>
-            <li class="mb-2"><a href="#" class="text-muted">Stores</a></li>
-            <li class="mb-2"><a href="#" class="text-muted">Our Blog</a></li>
-          </ul>
-        </div>
-        <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
-          <h6 class="text-uppercase font-weight-bold mb-4">Company</h6>
-          <ul class="list-unstyled mb-0">
-            <li class="mb-2"><a href="#" class="text-muted">Login</a></li>
-            <li class="mb-2"><a href="#" class="text-muted">Register</a></li>
-            <li class="mb-2"><a href="#" class="text-muted">Wishlist</a></li>
-            <li class="mb-2"><a href="#" class="text-muted">Our Products</a></li>
-          </ul>
-        </div>
-        <div class="col-lg-4 col-md-6 mb-lg-0">
-          <h6 class="text-uppercase font-weight-bold mb-4">Newsletter</h6>
-          <p class="text-muted mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. At itaque temporibus.</p>
-          <div class="p-1 rounded border">
-            <div class="input-group">
-              <input type="email" placeholder="Enter your email address" aria-describedby="button-addon1" class="form-control border-0 shadow-0">
-              <div class="input-group-append">
-                <button id="button-addon1" type="submit" class="btn btn-link"><i class="fa fa-paper-plane"></i></button>
-              </div>
-            </div>
-          </div>
-        </div> -->
-      </div>
-    </div>
-
-    <!-- Copyrights -->
-
-  </footer>
-  <!-- End -->
-
-
-    <!-- footer -->
     <footer>
       <p class="footer">AnshDaan - Give The Gift of Life</p>
     </footer>
