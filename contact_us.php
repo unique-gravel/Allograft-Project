@@ -168,14 +168,14 @@ $datebasePatientFlag = $_SESSION['patientFlag'];
           <div class="phone details">
             <i class="fas fa-phone-alt"></i>
             <div class="topic">Phone</div>
-            <div class="text-one">+0098 9893 5647</div>
-            <div class="text-two">+0096 3434 5678</div>
+            <div class="text-one">7453888262</div>
+            <div class="text-two">9548822264</div>
           </div>
           <div class="email details">
             <i class="fas fa-envelope"></i>
             <div class="topic">Email</div>
-            <div class="text-one">codinglab@gmail.com</div>
-            <div class="text-two">info.codinglab@gmail.com</div>
+            <div class="text-one">ananya.agrawal2020@vitbhopal.ac.in</div>
+            <div class="text-two">sai.subhra2020@vitbhopal.ac.in</div>
           </div>
         </div>
         <div class="right-side">
@@ -202,10 +202,7 @@ $datebasePatientFlag = $_SESSION['patientFlag'];
       </div>
     </div>
 
-    <!-- footer -->
-    <footer>
-      <p class="footer">AnshDaan - Give The Gift of Life</p>
-    </footer>
+
     
   </body>
 </html>
