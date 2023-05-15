@@ -391,6 +391,5 @@ $datebasePatientFlag = $_SESSION['patientFlag'];
 
 
 
->>>>>>> ebae205eab1ba4a9ee8739a1643ad2855fc906c8:index.html
   </body>
 </html>
