@@ -1,12 +1,12 @@
-<?php 
-error_reporting (0); 
+<!-- <?php 
+error_reporting (E_ALL ^ E_NOTICE); 
 session_start(); 
 $userID = $_SESSION['userID'];  
 $username = $_SESSION['username']; 
 $databaseTitle = $_SESSION['title']; 
 $databaseUserType = $_SESSION['userType']; 
 $datebasePatientFlag = $_SESSION['patientFlag']; 
-?>
+?> -->
 <!DOCTYPE html>
 <head>
     <meta charset="utf-8" />
@@ -88,28 +88,31 @@ $datebasePatientFlag = $_SESSION['patientFlag'];
               <a class="nav-link" href="about_us.php">About Us</a>
             </li>
 
-            <?php
-              if(!$userID)
-                {
-                  echo "<li class='nav-item'>
-                          <div>
-                            <button>Register</button>
-                            <div class='dropdown-content'>
-                              <div class='dropdown-options'>
-                                <a href='register.php'>Donor/Recipient</a>
-                                <a href='staff_register.php'>Doctor/Staff</a>
+            <li class="nav-item">
+              <?php
+                if(!$userID)
+                  {
+                    echo "<div class='dropdown'>
+                              <button>Register</button>
+                              <div class='dropdown-content'>
+                                <div class='dropdown-options'>
+                                  <a class='nav-link' href='register.php'>Donor/Recipient</a>
+                                  <a class='nav-link' href='staff_register.php'>Doctor/Staff</a>
+                                </div>
                               </div>
-                            </div>
-                          </div>
-                        </li>";
-                }
-            ?>
+                            </div>";
+                  }
+                ?>
+              </li>
 
-            <?php
-              if(!$username) {
-                echo "<li  class='nav-item'><a class='nav-link' href='login.php'>Login</a></li>"; 
-              } 
-              ?>
+              <li class="nav-item">
+                <?php
+                if(!$username)
+                {
+                  echo "<a class='nav-link' href='login.php'>Login</a>"; 
+                } 
+                ?>
+              </li>
 
             <?php
                 if($userID && $databaseUserType != "0") 
