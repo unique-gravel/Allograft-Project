@@ -38,6 +38,10 @@ p {
   /* color: #fff; */
 }
 
+.white-section {
+  background-color: #ffffffc0;
+}
+
 .landing-image {
   position: absolute;
   filter: brightness(40%);
@@ -83,7 +87,7 @@ p {
 
 .dropdown {
   display:block;
-  position: relative;
+  position:relative;
 }
 
 button{
@@ -93,12 +97,19 @@ button{
   cursor:pointer;
   background: none;
   font-size: 1.2rem;
-  color: rgba(255, 255, 255, 0.726);
+  color: rgb(121, 124, 125);
   font-family: "Montserrat-Light";
 }
 
 button:hover{
-  background-color:none;
+  border: 5px;
+  border-radius:5px;
+  padding-top: 8px;
+  cursor:pointer;
+  background: none;
+  font-size: 1.2rem;
+  color: rgba(255,255,255,.75);
+  font-family: "Montserrat-Light";
 }
 
 .dropdown-options {

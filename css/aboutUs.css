@@ -3,39 +3,38 @@
 .navbar {
     padding: 0 0 .1rem;
     background-color: rgb(0,0,0,0.70);
-}
+  }
   
-#logo {
+  #logo {
     padding: 20px;
-}
+  }
   
-.navbar-brand {
+  .navbar-brand {
     font-family: "Ubuntu";
     font-size: 2.5rem;
     font-weight: bold;
     padding-top: .5rem;
     padding-left: 1rem;
     padding-bottom: .5rem;
-}
+  }
   
-.nav-item {
+  .nav-item {
     padding: 0 10px;
-}
+  }
   
-.nav-link {
+  .nav-link {
     font-size: 1.2rem;
     font-family: "Montserrat-Light";
-}
+  }
   
-#navbarTogglerDemo02 {
+  #navbarTogglerDemo02 {
     padding-top: .5rem;
     padding-right: .4rem;
-}
-
-
-.dropdown {
+  }
+  
+  .dropdown {
     display:block;
-    position: relative;
+    position:relative;
   }
   
   button{
@@ -45,12 +44,19 @@
     cursor:pointer;
     background: none;
     font-size: 1.2rem;
-    color: rgba(255, 255, 255, 0.726);
+    color: rgb(121, 124, 125);
     font-family: "Montserrat-Light";
   }
   
   button:hover{
-    background-color:none;
+    border: 5px;
+    border-radius:5px;
+    padding-top: 8px;
+    cursor:pointer;
+    background: none;
+    font-size: 1.2rem;
+    color: rgba(255,255,255,.75);
+    font-family: "Montserrat-Light";
   }
   
   .dropdown-options {
@@ -79,6 +85,12 @@
     color: rgba(0, 0, 0, 0.689);
     background-color: rgba(255, 255, 255, 0.726);
     border-radius:5px;
+  }
+  
+  /* Buttons */
+  
+  .download-button {
+    margin: 5% 3% 5% 0;
   }
   
 
