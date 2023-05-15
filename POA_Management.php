@@ -1,6 +1,6 @@
 <!--validate information for updating, adding, and deleting -->
 <?php 
-error_reporting (E_ALL ^ E_NOTICE); 
+error_reporting (0); 
 session_start(); 
 $userID = $_SESSION['userID'];  
 $username = $_SESSION['username']; 

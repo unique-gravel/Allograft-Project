@@ -1,5 +1,5 @@
 <?php 
-error_reporting (E_ALL ^ E_NOTICE); 
+error_reporting (0); 
 session_start(); 
 $userID = $_SESSION['userID'];  
 $username = $_SESSION['username']; 
@@ -7,6 +7,7 @@ $databaseTitle = $_SESSION['title'];
 $databaseUserType = $_SESSION['userType']; 
 $datebasePatientFlag = $_SESSION['patientFlag']; 
 ?>
+
 <!DOCTYPE html>
 <html>
   <head>
