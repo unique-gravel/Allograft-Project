@@ -385,11 +385,10 @@ $datebasePatientFlag = $_SESSION['patientFlag'];
     </div>
 
     <!-- Copyrights -->
-
-  </footer>
+    <footer>
+      <p class="footer">AnshDaan - Give The Gift of Life</p>
+    </footer>
   <!-- End -->
-
-
 
   </body>
 </html>

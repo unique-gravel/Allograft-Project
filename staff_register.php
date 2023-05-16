@@ -1,5 +1,5 @@
 <?php
-error_reporting (0); 
+error_reporting (E_ALL); 
 session_start(); 
 $userID = $_SESSION['userID'];  
 $username = $_SESSION['username']; 
