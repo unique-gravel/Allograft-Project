@@ -60,14 +60,7 @@ $datebasePatientFlag = $_SESSION['patientFlag'];
     <body>
        <section>
       <!-- Nav Bar -->
-      <section class="colored-section" id="title">
-      <div class="landing-image">
-        <img
-          src="images/person-holding-anatomic-heart-model-educational-purpose.jpg"
-          width="1600px"
-          height="730px"
-        />
-      </div>
+      
       <nav class="navbar navbar-expand-lg navbar-dark">
         <a href="index.php"><img id="logo" src="images/logo_AnshDaan.png" , width="200px"/></a>
 
