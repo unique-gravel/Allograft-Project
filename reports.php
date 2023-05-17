@@ -92,10 +92,11 @@ $datebasePatientFlag = $_SESSION['patientFlag'];
               <a class="nav-link" href="about_us.php">About Us</a>
             </li>
 
-            <li class="nav-item">
+            
               <?php
                 if(!$userID)
                   {
+					echo "<li class='nav-item'>";
                     echo "<div class='dropdown'>
                               <button>Register</button>
                               <div class='dropdown-content'>
@@ -105,18 +106,17 @@ $datebasePatientFlag = $_SESSION['patientFlag'];
                                 </div>
                               </div>
                             </div>";
+					echo "</li>";
                   }
                 ?>
-              </li>
 
-              <li class="nav-item">
+              
                 <?php
                 if(!$username)
                 {
-                  echo "<a class='nav-link' href='login.php'>Login</a>"; 
+                  echo "<li class='nav-item'> <a class='nav-link' href='login.php'>Login</a></li>"; 
                 } 
                 ?>
-              </li>
 
             <?php
                 if($userID && $databaseUserType != "0") 
@@ -138,7 +138,7 @@ $datebasePatientFlag = $_SESSION['patientFlag'];
               
             <?php 
               if($userID) {
-                echo "<li class='nav-item'><a class='nav-link' href='POA_Management.php'>Power Of Attorney</a></li>";
+                // echo "<li class='nav-item'><a class='nav-link' href='POA_Management.php'>Power Of Attorney</a></li>";
                 echo "<li class='nav-item'><a class='nav-link' href='logout.php'>Logout</a></li>";
               } 
             ?>
