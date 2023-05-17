@@ -186,7 +186,7 @@ th {
 </style>
 	<p>&nbsp;</p>
 	<div class = "priority" align = "center">
-		<h2 class="title"><font face= "Brush Script MT" size = 13px>The Scheduler</font></h2>
+		<h2 class="title"><font face= "Montserrat" size = 13px>The Scheduler</font></h2>
 		<div id="sidebar" align = "left">
 				<p><b>Enter the username of the doctor and matched pair, and time to schedule them.</b></p><br>
 				<fieldset> 
