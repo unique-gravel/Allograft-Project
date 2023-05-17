@@ -239,7 +239,7 @@ $datebasePatientFlag = $_SESSION['patientFlag'];
 													$_SESSION['patientFlag'] = $datebasePatientFlag;   
 													$connection->close(); 
 													echo "Welcome to Ansh-Dann <b>{$databaseUserName}</b>";
-													header("refresh:2; url = index.php"); 
+													header("refresh:1; url = index.php"); 
 												}
 												else
 												{
@@ -257,7 +257,7 @@ $datebasePatientFlag = $_SESSION['patientFlag'];
 											$_SESSION['patientFlag'] = $datebasePatientFlag; 
 											$connection->close(); 
 											echo "Welcome to Ansh-Dann Organ Donation <b>{$username}</b>!";
-											header("refresh:3; url = index.php"); 
+											header("refresh:1; url = index.php"); 
 										}
 
 										else
