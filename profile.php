@@ -7,6 +7,7 @@ $databaseTitle = $_SESSION['title'];
 $databaseUserType = $_SESSION['userType']; 
 $datebasePatientFlag = $_SESSION['patientFlag']; 
 ?>
+
 <!DOCTYPE html> 
 <html>
 <head>
@@ -179,8 +180,24 @@ $datebasePatientFlag = $_SESSION['patientFlag'];
 
 	  <div align = "left" >
 		<span onclick="openNav()" class="material-symbols-outlined">menu</span>
+		<div>
+				<div id="mySidenav" class="sidenav">
+				<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+					<?php
+						echo "<c>Welcome, {$username}</c><br>"; 
+						echo "<p>&nbsp;</p>";
+						echo "<li class='fieldset'>";
+						if ($datebasePatientFlag == 1) {
+							echo "<a href = 'POA_Management.php'> Power of Attorney Management </a>";
+						}
+						echo "<a href = 'changepassword.php'> Change Password </a>"; 
+						echo "<a href = 'deactivate.php'> Deactivate Acount </a>";
+						echo "</li>"; 
+					?>
+				</div>
+			</div>
       </div>
-	  </div>
+
 <style>
 table {
     border-collapse: collapse;
@@ -346,20 +363,6 @@ th {
 				$connection->close(); 
 			?>
 			<p>&nbsp;</p>
-			<div>
-				<div id="mySidenav" class="sidenav">
-				<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-					<?php
-						echo "<c>Welcome, {$username}</c><br>"; 
-						echo "<p>&nbsp;</p>";
-						echo "<li class='fieldset'>"; 
-						echo "<a href = 'POA_Management.php'> Power of Attorney Management </a>";
-						echo "<a href = 'changepassword.php'> Change Password </a>"; 
-						echo "<a href = 'deactivate.php'> Deactivate Acount </a>";
-						echo "</li>"; 
-					?>
-				</div>
-			</div>
 		</div>
 	</div>
 	</div>

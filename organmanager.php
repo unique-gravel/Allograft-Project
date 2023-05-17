@@ -1,7 +1,62 @@
+<?php 
+error_reporting (E_ALL); 
+session_start(); 
+$userID = $_SESSION['userID'];  
+$username = $_SESSION['username']; 
+$databaseTitle = $_SESSION['title']; 
+$databaseUserType = $_SESSION['userType']; 
+$datebasePatientFlag = $_SESSION['patientFlag']; 
+?>
+
 <!DOCTYPE html>
 <html>
 <title>Organ Management</title>
 <link rel="stylesheet" type="text/css" href="style.css" />
+<head>
+    <meta charset="utf-8" />
+    <title>
+      Together, We Can Save Lives - Join the Organ Donation Movement
+    </title>
+    <link rel="icon" type="image/png" href="images/logo_2.png" />
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat|Ubuntu"
+      rel="stylesheet"
+    />
+
+    <!-- CSS Stylesheets -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+
+    <!-- Font Awesome -->
+    <script
+      defer
+      src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"
+    ></script>
+
+    <!-- Bootstrap Scripts -->
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+  </head>
 <body>
       <!-- Nav Bar -->
 
@@ -100,10 +155,11 @@
         </div>
       </nav>
       <!-- Navigation Bar End -->
-	  
+
+
 <p>&nbsp;</p>
 	<div class = "priority" align = "center">
-	<h2 class="title"><font face= "Brush Script MT" size = 13px>Organ Management System</font></h2> 
+	<h2 class="title"><font face= "Montserrat" size = 13px>Organ Management System</font></h2> 
 <table style='width:35%' align = 'left' bgcolor='white'>
 	<tr>
 		<td>
@@ -160,16 +216,16 @@
 	<?php
 	
 	//connnect to mySQL
-	$mySQL = mysqli_connect('127.0.0.1', 'root', 'password', 'organdonation');
-	if(!$mySQL)
+	require("connect.php");
+	if(!$connection)
 	{
 		echo "ERROR: Cannot connect to mySQL database.";
 		exit;
 	}
 	
 	//select the organ donor database in mySQL
-	$organDonorDB = mysqli_select_db($mySQL, "organdonation");
-	if(!$organDonorDB)
+	$allograftDB = mysqli_select_db($connection, "allograft");
+	if(!$allograftDB)
 	{
 		echo "ERROR: Cannot connect to Organ Donor Database";
 		exit;
@@ -179,14 +235,12 @@
 	$query = "SELECT userID, recipientID, typeOfOrgan, bloodType, weight, expirationTime, availableTime, status
 			  FROM organs";
 	
-	$result = mysqli_query($mySQL, $query);
+	$result = mysqli_query($connection, $query);
 	if(mysqli_num_rows($result) > 0)
 	{
 		while($row = mysqli_fetch_assoc($result))
 		{
-			echo
-				"
-					<tr>
+			echo"<tr>
 						<td align='center' style='width:100px'><input type='checkbox' name = '" . $row["typeOfOrgan"] . "-" . $row["userID"] . "'></td>
 						<td align='center' style='width:100px'>" . $row["typeOfOrgan"] ."</td>
 						<td align='center' style='width:100px'>" . $row["userID"] ."</td>
@@ -209,6 +263,7 @@
 		echo "No available records.";
 		exit;
 	}
+	$connection->close(); 
 	?>
 </div>
 </body>
