@@ -85,7 +85,7 @@ $datebasePatientFlag = $_SESSION['patientFlag'];
           <ul class="navbar-nav ml-auto">
 
             <li class="nav-item">
-              <a class="nav-link" href="contact_us.php">Contact</a>
+              <a class="nav-link" href="contact_us.php">Contact Us</a>
             </li>
 
             <li class="nav-item">

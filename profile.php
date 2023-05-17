@@ -347,7 +347,6 @@ th {
 			?>
 			<p>&nbsp;</p>
 			<div>
-				<!-- <div id="sidebar" > -->
 				<div id="mySidenav" class="sidenav">
 				<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
 					<?php
@@ -361,10 +360,11 @@ th {
 					?>
 				</div>
 			</div>
-			<p>&nbsp;</p>
 		</div>
-	</body>
+	</div>
+	</div>
 	<footer>
 		<p class="footer">AnshDaan - Give The Gift of Life</p>
 	</footer>
+	</body>
 </html>
