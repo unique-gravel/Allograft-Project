@@ -12,12 +12,16 @@ $username = $_SESSION['username'];
     <link rel="stylesheet" type="text/css" href="style.css" />
 </head>
       <!-- Nav Bar -->
-
+      <section class="colored-section" id="title">
+      <div class="landing-image">
+        <img
+          src="images/person-holding-anatomic-heart-model-educational-purpose.jpg"
+          width="1600px"
+          height="730px"
+        />
+      </div>
       <nav class="navbar navbar-expand-lg navbar-dark">
-        <!-- <a class="navbar-brand" href="index.html">AnshDaan</a> -->
-        <a href="index.php"
-          ><img id="logo" src="images/logo_AnshDaan.png" , width="200px"
-        /></a>
+        <a href="index.php"><img id="logo" src="images/logo_AnshDaan.png" , width="200px"/></a>
 
         <button
           class="navbar-toggler"
@@ -35,7 +39,7 @@ $username = $_SESSION['username'];
           <ul class="navbar-nav ml-auto">
 
             <li class="nav-item">
-              <a class="nav-link" href="contact_us.php">Contact</a>
+              <a class="nav-link" href="contact_us.php">Contact Us</a>
             </li>
 
             <li class="nav-item">
@@ -46,10 +50,10 @@ $username = $_SESSION['username'];
               <a class="nav-link" href="about_us.php">About Us</a>
             </li>
 
-            <li class="nav-item">
               <?php
                 if(!$userID)
                   {
+                    echo "<li class='nav-item'>";
                     echo "<div class='dropdown'>
                               <button>Register</button>
                               <div class='dropdown-content'>
@@ -59,18 +63,19 @@ $username = $_SESSION['username'];
                                 </div>
                               </div>
                             </div>";
+                    echo "</li>";
                   }
                 ?>
-              </li>
-
-              <li class="nav-item">
-                <?php
-                if(!$username)
+            
+              <?php
+              if(!$username)
                 {
+                  echo "<li class='nav-item'>";
                   echo "<a class='nav-link' href='login.php'>Login</a>"; 
+                  echo "</li>";
                 } 
-                ?>
-              </li>
+              ?>
+            
 
             <?php
                 if($userID && $databaseUserType != "0") 
@@ -92,7 +97,7 @@ $username = $_SESSION['username'];
               
             <?php 
               if($userID) {
-                echo "<li class='nav-item'><a class='nav-link' href='POA_Management.php'>Power Of Attorney</a></li>";
+                // echo "<li class='nav-item'><a class='nav-link' href='POA_Management.php'>Power Of Attorney</a></li>";
                 echo "<li class='nav-item'><a class='nav-link' href='logout.php'>Logout</a></li>";
               } 
             ?>
