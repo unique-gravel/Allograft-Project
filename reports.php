@@ -30,7 +30,7 @@ $datebasePatientFlag = $_SESSION['patientFlag'];
       integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="css/login.css" />
+    <link rel="stylesheet" href="css/report.css" />
 
     <!-- Font Awesome -->
     <script
@@ -57,15 +57,6 @@ $datebasePatientFlag = $_SESSION['patientFlag'];
   </head>
 
   <body>
-    <section class="colored-section" id="title">
-      <div class="landing-image">
-        <img
-          src="images/person-holding-anatomic-heart-model-educational-purpose.jpg"
-          width="100%"
-          height="60%"
-        />
-      </div>
-
       <!-- Nav Bar -->
 
       <nav class="navbar navbar-expand-lg navbar-dark">
@@ -185,7 +176,7 @@ th {
 </style>
 	<p>&nbsp;</p> 
 	<div class = "priority" align = "center">
-	<div id="header"><h2 class="title" align = "center"><font face= "Brush Script MT" size = 13px>Reports</font></h2></div>
+	<div id="header"><h2 class="title" align = "center"><font face= "Montserrat" size = 13px>Reports</font></h2></div>
 	<div id="main-wrap">
 		<div id="content-wrap" style = "overflow-x:auto;">
 		<p>&nbsp;</p>
@@ -338,5 +329,8 @@ th {
 			</div>
 		</div>
 		</div>
-</body>
+  </body>
+  <footer>
+    <p class="footer">AnshDaan - Give The Gift of Life</p>
+  </footer>
 </html>
