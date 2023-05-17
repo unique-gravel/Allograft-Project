@@ -176,17 +176,17 @@ $username = $_SESSION['username'];
 			$query = mysqli_query($connection, "SELECT firstName, lastName, userID, patientCond, dob, height, weight, doctorUserID FROM patientinfo");
 			$numberOfRows = mysqli_num_rows($query);
 
-           echo "<tr>";
-                echo "<td> John </td>";
-                echo "<td> Smith </td>";
-                echo "<td> 1 </td>";
-                echo "<td> Critical </td>";
-                echo "<td> 2001-01-01 </td>";
-                echo "<td> 5 </td>";
-                echo "<td> 210 lbs. </td>";
-                echo "<td> 0001 </td>";
-                echo "<td> Bob </td>";
-            echo "</tr>";
+          //  echo "<tr>";
+          //       echo "<td> John </td>";
+          //       echo "<td> Smith </td>";
+          //       echo "<td> 1 </td>";
+          //       echo "<td> Critical </td>";
+          //       echo "<td> 2001-01-01 </td>";
+          //       echo "<td> 5 </td>";
+          //       echo "<td> 210 lbs. </td>";
+          //       echo "<td> 0001 </td>";
+          //       echo "<td> Bob </td>";
+          //   echo "</tr>";
 
 			if ($numberOfRows > 0) 
 			{

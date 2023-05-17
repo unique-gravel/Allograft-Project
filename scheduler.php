@@ -1,5 +1,5 @@
 <?php 
-error_reporting (0); 
+error_reporting (E_ALL); 
 session_start(); 
 $userID = $_SESSION['userID'];  
 $username = $_SESSION['username']; 
@@ -199,7 +199,7 @@ th {
 		<div id="main-wrap">
 			<div id="content-wrap" align="left" style = "overflow-x:auto;">
 			<?php
-			error_reporting (E_ALL); 
+			// error_reporting (E_ALL); 
 			require("connect.php"); 
 			if(isset($_POST['schedulebutton']))
 			{

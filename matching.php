@@ -1,4 +1,5 @@
 <?php 
+ob_start();
 error_reporting (E_ALL); 
 session_start(); 
 $userID = $_SESSION['userID'];  
@@ -203,7 +204,7 @@ th {
 	</div>
 		<div id="content-wrap" style = "overflow-x:auto;">
 		<?php
-			error_reporting (0);
+			// error_reporting (0);
 			require("connect.php");
 			if(isset($_POST['sortbutton']))
 			{
@@ -238,7 +239,7 @@ th {
 				}
 				
 				echo "<b>Recipient Waitlist</b>";
-				$queryRecipients = mysqli_query($connection, "SELECT useraccount.userName AS 'Username', patientinfo.firstName AS 'First Name', patientinfo.lastName AS 'Last Name', patientinfo.email AS 'Email', patientinfo.bloodType AS 'Blood Type', patientinfo.title AS 'Organ', waitlist.waitlistScore AS 'Score' FROM useraccount, patientinfo, waitlist, accountinfo WHERE useraccount.active = 1 AND patientinfo.patientType = 2 AND patientinfo.available = 1 AND useraccount.userID = patientinfo.userID AND patientinfo.userID = waitlist.userID AND patientinfo.title = '$databaseTitle' AND patientinfo.doctorUserID = accountinfo.doctorUserID AND accountinfo.userID = '$userID' AND accountinfo.userID = '$userID' ORDER BY $sortVariable $orderVariable"); 
+				$queryRecipients = mysqli_query($connection, "SELECT useraccount.userName AS 'Username', patientinfo.firstName AS 'First Name', patientinfo.lastName AS 'Last Name', patientinfo.email AS 'Email', patientinfo.bloodType AS 'Blood Type', patientinfo.title AS 'Organ', waitlist.Score AS 'Score' FROM useraccount, patientinfo, waitlist, accountinfo WHERE useraccount.active = 1 AND patientinfo.patientType = 2 AND patientinfo.available = 1 AND useraccount.userID = patientinfo.userID AND patientinfo.userID = waitlist.userID AND patientinfo.title = '$databaseTitle' AND patientinfo.doctorUserID = accountinfo.doctorUserID AND accountinfo.userID = '$userID' AND accountinfo.userID = '$userID' ORDER BY $sortVariable $orderVariable"); 
 				echo "<table>"; // start a table tag in the HTML
 				echo "<tr> <th>Username</th> <th>First Name</th> <th>Last Name</th> <th>Email</th> <th>Blood Type</th> <th>Organ</th> <th>Score</th> <tr> "; 
 				while($recipientRow = mysqli_fetch_array($queryRecipients))
@@ -282,7 +283,7 @@ th {
 								if($recipientBlood2 == $donorBlood2 || $donorBlood2 == "O" || $recipientBlood2 == "AB")
 								{
 									$insertOrgan = mysqli_query($connection, "INSERT INTO organs VALUES ('$recipientUser', '$donorUser', '$recipientOrgan', '$recipientBlood', NOW())"); 
-									$updatePatientinfo =  mysqli_query($connection, "UPDATE waitlist SET waitlistScore = -1 WHERE '$recipientUser' = userID"); 
+									$updatePatientinfo =  mysqli_query($connection, "UPDATE waitlist SET Score = -1 WHERE '$recipientUser' = userID"); 
 									echo "<b>You've made a match. The patients will be notified by email.</b>";
 									$connection->close(); 
 									header("refresh:3;url=matching.php");
@@ -318,7 +319,7 @@ th {
 				else
 				{
 					echo "Please enter in all fields"; 
-					header("refresh:2;url=matching.php");
+					header("refresh:2; url=matching.php");
 				}
 			}
 			else 
@@ -335,16 +336,16 @@ th {
 				echo "</table><br><br>"; //Close the table in HTML 
 				
 				echo "<b>Recipient Waitlist</b>";
-				$queryRecipients = mysqli_query($connection, "SELECT useraccount.userName AS 'Username', patientinfo.firstName AS 'First Name', patientinfo.lastName AS 'Last Name', patientinfo.email AS 'Email', patientinfo.bloodType AS 'Blood Type', patientinfo.title AS 'Organ', waitlist.waitlistScore AS 'Score' FROM useraccount, patientinfo, waitlist, accountinfo WHERE useraccount.active = 1 AND patientinfo.patientType = 2 AND patientinfo.available = 1 AND useraccount.userID = patientinfo.userID AND patientinfo.userID = waitlist.userID AND patientinfo.title = '$databaseTitle' AND patientinfo.doctorUserID = accountinfo.doctorUserID AND accountinfo.userID = '$userID' ORDER BY 6 ASC"); 
+				$queryRecipients = mysqli_query($connection, "SELECT useraccount.userName AS 'Username', patientinfo.firstName AS 'First Name', patientinfo.lastName AS 'Last Name', patientinfo.email AS 'Email', patientinfo.bloodType AS 'Blood Type', patientinfo.title AS 'Organ', waitlist.Score AS 'Score' FROM useraccount, patientinfo, waitlist, accountinfo WHERE useraccount.active = 1 AND patientinfo.patientType = 2 AND patientinfo.available = 1 AND useraccount.userID = patientinfo.userID AND patientinfo.userID = waitlist.userID AND patientinfo.title = '$databaseTitle' AND patientinfo.doctorUserID = accountinfo.doctorUserID AND accountinfo.userID = '$userID' ORDER BY 6 ASC"); 
 				echo "<table>"; // start a table tag in the HTML
 				echo "<tr> <th>Username</th> <th>First Name</th> <th>Last Name</th> <th>Email</th> <th>Blood Type</th> <th>Organ</th> <th>Score</th> </tr> "; 
 				while($recipientRow = mysqli_fetch_array($queryRecipients))
 				{
 					echo "<tr><td>" . $recipientRow['Username'] . "</td> <td>" . $recipientRow['First Name'] . "</td> <td>" . $recipientRow['Last Name'] . "</td> <td>" . $recipientRow['Email'] . "</td> <td>" . $recipientRow['Blood Type'] . "</td> <td>" . $recipientRow['Organ'] . "</td> <td>" . $recipientRow['Score'] . "</td></tr>";  //$row['index'] the index here is a field name
-				}
-				
+				}		
 				$connection->close(); 
 			}
+			echo "<p>&nbsp;</p>";		
 		?>
 			</div>
 		</div>

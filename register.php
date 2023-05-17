@@ -451,6 +451,9 @@ $datebasePatientFlag = $_SESSION['patientFlag'];
                                     $useraccount_password1 = mysqli_real_escape_string($connection, $_POST['pass']); 
                                     $useraccount_password2 = mysqli_real_escape_string($connection, $_POST['verifypassword']); 
                                     
+                                    $score = 0;
+                                    $ageOfPatient = intval(date("Y") - $patientinfo_year);
+
                                     $numberOfRows = 0; 
                                     $query = mysqli_query($connection, "SELECT * 
                                                     FROM useraccount
@@ -491,22 +494,69 @@ $datebasePatientFlag = $_SESSION['patientFlag'];
                                                             $patientinfo_poaphone = $_POST['poaphone']; 
                                                             if($patientinfo_organ === "heart")
                                                             {
-                                                                $queryInsert3 = mysqli_query($connection,"INSERT INTO patientinfo (userID, addressID, patientType, firstName, lastName, title, phoneNumber, email, driversLicense, decisionMakerFlag, liverFlag, heartFlag, kidneyFlag, lungFlag, available, bloodType, height, weight, dob, doctorUserID, patientCond, active) VALUES ('$useraccount_userID', '$randomAddressID', '$patientinfo_patienttype', '$patientinfo_firstname', '$patientinfo_lastname', 'heart', '$patientinfo_phone', '$patientinfo_email', '$patientinfo_driverslicense', 1, 0, 1, 0, 0, 1, '$patientinfo_bloodtype', '$patientinfo_height', '$patientinfo_weight', '$patientinfo_dob', '1997yuna123KDTLW', '$patientinfo_condition', 1)")or die (mysqli_error($connection));
+                                                                $score += 20;
+                                                                $queryInsert3 = mysqli_query($connection, "INSERT INTO patientinfo (userID, addressID, patientType, firstName, lastName, title, phoneNumber, email, driversLicense, decisionMakerFlag, liverFlag, heartFlag, kidneyFlag, lungFlag, available, bloodType, height, weight, dob, doctorUserID, patientCond, active) VALUES ('$useraccount_userID', '$randomAddressID', '$patientinfo_patienttype', '$patientinfo_firstname', '$patientinfo_lastname', 'heart', '$patientinfo_phone', '$patientinfo_email', '$patientinfo_driverslicense', FALSE, FALSE, TRUE, FALSE, FALSE, TRUE, '$patientinfo_bloodtype', '$patientinfo_height', '$patientinfo_weight', '$patientinfo_dob', '1997yuna123KDTLW' , '$patientinfo_condition', 1)"); 
                                                             }
+                                                                
                                                             else if($patientinfo_organ === "liver")
                                                             {
-                                                                $queryInsert3 = mysqli_query($connection, "INSERT INTO patientinfo (userID, addressID, patientType, firstName, lastName, title, phoneNumber, email, driversLicense, decisionMakerFlag, liverFlag, heartFlag, kidneyFlag, lungFlag, available, bloodType, height, weight, dob, doctorUserID, patientCond, active) VALUES ('$useraccount_userID', '$randomAddressID', '$patientinfo_patienttype', '$patientinfo_firstname', '$patientinfo_lastname', 'liver', '$patientinfo_phone', '$patientinfo_email', '$patientinfo_driverslicense', TRUE, TRUE, FALSE, FALSE, FALSE, TRUE, '$patientinfo_bloodtype', '$patientinfo_height', '$patientinfo_weight', '$patientinfo_dob', '6128bren984MNXbW' , '$patientinfo_condition', 1)");
+                                                                $score += 50;
+                                                                $queryInsert3 = mysqli_query($connection, "INSERT INTO patientinfo (userID, addressID, patientType, firstName, lastName, title, phoneNumber, email, driversLicense, decisionMakerFlag, liverFlag, heartFlag, kidneyFlag, lungFlag, available, bloodType, height, weight, dob, doctorUserID, patientCond, active) VALUES ('$useraccount_userID', '$randomAddressID', '$patientinfo_patienttype', '$patientinfo_firstname', '$patientinfo_lastname', 'liver', '$patientinfo_phone', '$patientinfo_email', '$patientinfo_driverslicense', FALSE, TRUE, FALSE, FALSE, FALSE, TRUE, '$patientinfo_bloodtype', '$patientinfo_height', '$patientinfo_weight', '$patientinfo_dob', '6128bren984MNXbW' , '$patientinfo_condition', 1)");
                                                             }
+                                                                
                                                             else if($patientinfo_organ === "lung")
                                                             {
-                                                                $queryInsert3 = mysqli_query($connection, "INSERT INTO patientinfo (userID, addressID, patientType, firstName, lastName, title, phoneNumber, email, driversLicense, decisionMakerFlag, liverFlag, heartFlag, kidneyFlag, lungFlag, available, bloodType, height, weight, dob, doctorUserID, patientCond, active) VALUES ('$useraccount_userID', '$randomAddressID', '$patientinfo_patienttype', '$patientinfo_firstname', '$patientinfo_lastname', 'lung', '$patientinfo_phone', '$patientinfo_email', '$patientinfo_driverslicense', TRUE, FALSE, FALSE, FALSE, TRUE, TRUE,'$patientinfo_bloodtype', '$patientinfo_height', '$patientinfo_weight', '$patientinfo_dob', '1493aerith84uXEfr', '$patientinfo_condition', 1)"); 
+                                                                $score += 40;
+                                                                $queryInsert3 = mysqli_query($connection, "INSERT INTO patientinfo (userID, addressID, patientType, firstName, lastName, title, phoneNumber, email, driversLicense, decisionMakerFlag, liverFlag, heartFlag, kidneyFlag, lungFlag, available, bloodType, height, weight, dob, doctorUserID, patientCond, active) VALUES ('$useraccount_userID', '$randomAddressID', '$patientinfo_patienttype', '$patientinfo_firstname', '$patientinfo_lastname', 'lung', '$patientinfo_phone', '$patientinfo_email', '$patientinfo_driverslicense', FALSE, FALSE, FALSE, FALSE, TRUE, TRUE,'$patientinfo_bloodtype', '$patientinfo_height', '$patientinfo_weight', '$patientinfo_dob', '1493aerith84uXEfr', '$patientinfo_condition', 1)"); 
                                                             }
                                                             else
                                                             {
-                                                                $queryInsert3 = mysqli_query($connection, "INSERT INTO patientinfo (userID, addressID, patientType, firstName, lastName, title, phoneNumber, email, driversLicense, decisionMakerFlag, liverFlag, heartFlag, kidneyFlag, lungFlag, available, bloodType, height, weight, dob, doctorUserID, patientCond, active) VALUES ('$useraccount_userID', '$randomAddressID', '$patientinfo_patienttype', '$patientinfo_firstname', '$patientinfo_lastname', 'kidney', '$patientinfo_phone', '$patientinfo_email', '$patientinfo_driverslicense', TRUE, FALSE, FALSE, TRUE, FALSE, TRUE, '$patientinfo_bloodtype', '$patientinfo_height', '$patientinfo_weight', '$patientinfo_dob', '9477ranko123aMmeN', '$patientinfo_condition', 1)"); 
+                                                                $score += 30;
+                                                                $queryInsert3 = mysqli_query($connection, "INSERT INTO patientinfo (userID, addressID, patientType, firstName, lastName, title, phoneNumber, email, driversLicense, decisionMakerFlag, liverFlag, heartFlag, kidneyFlag, lungFlag, available, bloodType, height, weight, dob, doctorUserID, patientCond, active) VALUES ('$useraccount_userID', '$randomAddressID', '$patientinfo_patienttype', '$patientinfo_firstname', '$patientinfo_lastname', 'kidney', '$patientinfo_phone', '$patientinfo_email', '$patientinfo_driverslicense', FALSE, FALSE, FALSE, TRUE, FALSE, TRUE, '$patientinfo_bloodtype', '$patientinfo_height', '$patientinfo_weight', '$patientinfo_dob', '9477ranko123aMmeN', '$patientinfo_condition', 1)"); 
+                                                            }
+
+                                                            if($queryInsert3) 
+                                                            {
+                                                                if($patientinfo_bloodtype === "O+") {
+                                                                  $score += 50;
+                                                                }
+                                                                else if($patientinfo_bloodtype === "A+") {
+                                                                  $score += 45;
+                                                                }
+                                                                else if($patientinfo_bloodtype === "B+") {
+                                                                  $score += 40;
+                                                                }
+                                                                else if($patientinfo_bloodtype === "O-") {
+                                                                  $score += 35;
+                                                                }
+                                                                else if($patientinfo_bloodtype === "AB+") {
+                                                                  $score += 40;
+                                                                }
+                                                                else if($patientinfo_bloodtype === "B-") {
+                                                                  $score += 35;
+                                                                }
+                                                                else {
+                                                                  $score += 30;
+                                                                }
+
+                                                                if($ageOfPatient >= 18 && $ageOfPatient < 30) {
+                                                                  $score += 50;
+                                                                }
+                                                                else if($ageOfPatient >= 30 && $ageOfPatient < 45) {
+                                                                  $score += 40;
+                                                                }
+                                                                else if($ageOfPatient >= 45 && $ageOfPatient < 60) {
+                                                                  $score += 30;
+                                                                }
+                                                                else {
+                                                                  $score += 20;
+                                                                }
+                                                                if($patientinfo_patienttype == 2) {
+                                                                    $queryInsert4 = mysqli_query($connection, "INSERT INTO waitlist VALUES ($useraccount_userID, $score) ");
+                                                                }
                                                             }
                                                         
-                                                            if($queryInsert3)
+                                                            if($queryInsert4)
                                                             {
                                                                 do{
                                                                 $patientinfo_poaID = rand(0, 9999); 
@@ -562,25 +612,70 @@ $datebasePatientFlag = $_SESSION['patientFlag'];
                                                         {
                                                             if($patientinfo_organ === "heart")
                                                             {
+                                                                $score += 20;
                                                                 $queryInsert3 = mysqli_query($connection, "INSERT INTO patientinfo (userID, addressID, patientType, firstName, lastName, title, phoneNumber, email, driversLicense, decisionMakerFlag, liverFlag, heartFlag, kidneyFlag, lungFlag, available, bloodType, height, weight, dob, doctorUserID, patientCond, active) VALUES ('$useraccount_userID', '$randomAddressID', '$patientinfo_patienttype', '$patientinfo_firstname', '$patientinfo_lastname', 'heart', '$patientinfo_phone', '$patientinfo_email', '$patientinfo_driverslicense', FALSE, FALSE, TRUE, FALSE, FALSE, TRUE, '$patientinfo_bloodtype', '$patientinfo_height', '$patientinfo_weight', '$patientinfo_dob', '1997yuna123KDTLW' , '$patientinfo_condition', 1)"); 
                                                             }
                                                                 
                                                             else if($patientinfo_organ === "liver")
                                                             {
+                                                                $score += 50;
                                                                 $queryInsert3 = mysqli_query($connection, "INSERT INTO patientinfo (userID, addressID, patientType, firstName, lastName, title, phoneNumber, email, driversLicense, decisionMakerFlag, liverFlag, heartFlag, kidneyFlag, lungFlag, available, bloodType, height, weight, dob, doctorUserID, patientCond, active) VALUES ('$useraccount_userID', '$randomAddressID', '$patientinfo_patienttype', '$patientinfo_firstname', '$patientinfo_lastname', 'liver', '$patientinfo_phone', '$patientinfo_email', '$patientinfo_driverslicense', FALSE, TRUE, FALSE, FALSE, FALSE, TRUE, '$patientinfo_bloodtype', '$patientinfo_height', '$patientinfo_weight', '$patientinfo_dob', '6128bren984MNXbW' , '$patientinfo_condition', 1)");
                                                             }
                                                                 
                                                             else if($patientinfo_organ === "lung")
                                                             {
-                                                                    $queryInsert3 = mysqli_query($connection, "INSERT INTO patientinfo (userID, addressID, patientType, firstName, lastName, title, phoneNumber, email, driversLicense, decisionMakerFlag, liverFlag, heartFlag, kidneyFlag, lungFlag, available, bloodType, height, weight, dob, doctorUserID, patientCond, active) VALUES ('$useraccount_userID', '$randomAddressID', '$patientinfo_patienttype', '$patientinfo_firstname', '$patientinfo_lastname', 'lung', '$patientinfo_phone', '$patientinfo_email', '$patientinfo_driverslicense', FALSE, FALSE, FALSE, FALSE, TRUE, TRUE,'$patientinfo_bloodtype', '$patientinfo_height', '$patientinfo_weight', '$patientinfo_dob', '1493aerith84uXEfr', '$patientinfo_condition', 1)"); 
+                                                                $score += 40;
+                                                                $queryInsert3 = mysqli_query($connection, "INSERT INTO patientinfo (userID, addressID, patientType, firstName, lastName, title, phoneNumber, email, driversLicense, decisionMakerFlag, liverFlag, heartFlag, kidneyFlag, lungFlag, available, bloodType, height, weight, dob, doctorUserID, patientCond, active) VALUES ('$useraccount_userID', '$randomAddressID', '$patientinfo_patienttype', '$patientinfo_firstname', '$patientinfo_lastname', 'lung', '$patientinfo_phone', '$patientinfo_email', '$patientinfo_driverslicense', FALSE, FALSE, FALSE, FALSE, TRUE, TRUE,'$patientinfo_bloodtype', '$patientinfo_height', '$patientinfo_weight', '$patientinfo_dob', '1493aerith84uXEfr', '$patientinfo_condition', 1)"); 
                                                             }
                                                                 
                                                             else
                                                             {
+                                                                $score += 30;
                                                                 $queryInsert3 = mysqli_query($connection, "INSERT INTO patientinfo (userID, addressID, patientType, firstName, lastName, title, phoneNumber, email, driversLicense, decisionMakerFlag, liverFlag, heartFlag, kidneyFlag, lungFlag, available, bloodType, height, weight, dob, doctorUserID, patientCond, active) VALUES ('$useraccount_userID', '$randomAddressID', '$patientinfo_patienttype', '$patientinfo_firstname', '$patientinfo_lastname', 'kidney', '$patientinfo_phone', '$patientinfo_email', '$patientinfo_driverslicense', FALSE, FALSE, FALSE, TRUE, FALSE, TRUE, '$patientinfo_bloodtype', '$patientinfo_height', '$patientinfo_weight', '$patientinfo_dob', '9477ranko123aMmeN', '$patientinfo_condition', 1)"); 
                                                             }
+
+                                                            if($queryInsert3) 
+                                                            {
+                                                                if($patientinfo_bloodtype === "O+") {
+                                                                  $score += 50;
+                                                                }
+                                                                else if($patientinfo_bloodtype === "A+") {
+                                                                  $score += 45;
+                                                                }
+                                                                else if($patientinfo_bloodtype === "B+") {
+                                                                  $score += 40;
+                                                                }
+                                                                else if($patientinfo_bloodtype === "O-") {
+                                                                  $score += 35;
+                                                                }
+                                                                else if($patientinfo_bloodtype === "AB+") {
+                                                                  $score += 40;
+                                                                }
+                                                                else if($patientinfo_bloodtype === "B-") {
+                                                                  $score += 35;
+                                                                }
+                                                                else {
+                                                                  $score += 30;
+                                                                }
+
+                                                                if($ageOfPatient >= 18 && $ageOfPatient < 30) {
+                                                                  $score += 50;
+                                                                }
+                                                                else if($ageOfPatient >= 30 && $ageOfPatient < 45) {
+                                                                  $score += 40;
+                                                                }
+                                                                else if($ageOfPatient >= 45 && $ageOfPatient < 60) {
+                                                                  $score += 30;
+                                                                }
+                                                                else {
+                                                                  $score += 20;
+                                                                }
+
+                                                                if($patientinfo_patienttype == 2) {
+                                                                  $queryInsert4 = mysqli_query($connection, "INSERT INTO waitlist VALUES ($useraccount_userID, $score) ");
+                                                              }                                                            }
                                                             
-                                                            if($queryInsert3)
+                                                            if($queryInsert4)
                                                             {
                                                                 require 'PHPMailerAutoload.php';
                                                                 $mail = new PHPMailer;
@@ -645,9 +740,7 @@ $datebasePatientFlag = $_SESSION['patientFlag'];
                                     echo "<b>Error 1.</b>"; 
                             }
                             else 
-                                echo "<b>Error 2.</b>"; 
-                        
-                        
+                                echo "<b>Error 2.</b>";    
                     }
                     else
                         "<b>Error 3.</b>"; 
