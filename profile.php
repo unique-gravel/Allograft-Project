@@ -60,6 +60,8 @@ $datebasePatientFlag = $_SESSION['patientFlag'];
       crossorigin="anonymous"
     ></script>
 
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+
 	<script>
 		function openNav() {
 			document.getElementById("mySidenav").style.width = "250px";
@@ -111,10 +113,11 @@ $datebasePatientFlag = $_SESSION['patientFlag'];
               <a class="nav-link" href="about_us.php">About Us</a>
             </li>
 
-            <li class="nav-item">
+            
               <?php
                 if(!$userID)
                   {
+					echo "<li class='nav-item'>";
                     echo "<div class='dropdown'>
                               <button>Register</button>
                               <div class='dropdown-content'>
@@ -124,18 +127,17 @@ $datebasePatientFlag = $_SESSION['patientFlag'];
                                 </div>
                               </div>
                             </div>";
+					echo "</li>";
                   }
                 ?>
-              </li>
 
-              <li class="nav-item">
+              
                 <?php
                 if(!$username)
                 {
-                  echo "<a class='nav-link' href='login.php'>Login</a>"; 
+                  echo "<li class='nav-item'> <a class='nav-link' href='login.php'>Login</a></li>"; 
                 } 
                 ?>
-              </li>
 
             <?php
                 if($userID && $databaseUserType != "0") 
@@ -157,7 +159,7 @@ $datebasePatientFlag = $_SESSION['patientFlag'];
               
             <?php 
               if($userID) {
-                echo "<li class='nav-item'><a class='nav-link' href='POA_Management.php'>Power Of Attorney</a></li>";
+                // echo "<li class='nav-item'><a class='nav-link' href='POA_Management.php'>Power Of Attorney</a></li>";
                 echo "<li class='nav-item'><a class='nav-link' href='logout.php'>Logout</a></li>";
               } 
             ?>
@@ -175,13 +177,8 @@ $datebasePatientFlag = $_SESSION['patientFlag'];
       <!-- Navigation Bar End -->
 	  
 
-	  <div align = "left">
-		<span onclick="openNav()">
-        <img
-          src="images/info.png"
-		  length="20px"
-		  width="20px"
-        /></span>
+	  <div align = "left" >
+		<span onclick="openNav()" class="material-symbols-outlined">menu</span>
       </div>
 	  </div>
 <style>
@@ -354,12 +351,13 @@ th {
 				<div id="mySidenav" class="sidenav">
 				<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
 					<?php
-						echo "<b>Welcome, {$username}</b><br>"; 
-						echo "<fieldset>"; 
-						// echo "<a href = 'POA_Management.php'> Power of Attorney Management </a><br>";
-						echo "<a href = 'changepassword.php'> Change Password </a><br>"; 
-						echo "<a href = 'deactivate.php'> Deactivate Acount </a><br>";
-						echo "</fieldset>"; 
+						echo "<c>Welcome, {$username}</c><br>"; 
+						echo "<p>&nbsp;</p>";
+						echo "<li class='fieldset'>"; 
+						echo "<a href = 'POA_Management.php'> Power of Attorney Management </a>";
+						echo "<a href = 'changepassword.php'> Change Password </a>"; 
+						echo "<a href = 'deactivate.php'> Deactivate Acount </a>";
+						echo "</li>"; 
 					?>
 				</div>
 			</div>

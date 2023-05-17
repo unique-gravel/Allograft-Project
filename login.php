@@ -1,4 +1,5 @@
 <!-- <?php 
+ob_start();
 error_reporting (E_ALL ^ E_NOTICE); 
 session_start(); 
 $userID = $_SESSION['userID'];  
@@ -14,6 +15,9 @@ $datebasePatientFlag = $_SESSION['patientFlag'];
       Together, We Can Save Lives - Join the Organ Donation Movement
     </title>
     <link rel="icon" type="image/png" href="images/logo_2.png" />
+
+	<!-- Material theme for login button -->
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
 
     <!-- Google Fonts -->
     <link
@@ -155,29 +159,30 @@ $datebasePatientFlag = $_SESSION['patientFlag'];
 		<!-- <section title="login_box"> -->
 		<div class = "priority" align="center">
 			<h2 class="title"><font face="Montserrat-Bold" size = 13px><b>Login</b></font></h2>
-			<p>&nbsp;</p>
+			<!-- <p>&nbsp;</p> -->
 			<div class="container">
 				<div class="box"> 
+				<span class="material-symbols-outlined">login</span><br>
 					<?php
 					if($username && $userID) //if the user is already logged in 
 					{
 						echo "You're already logged in as <b>$username</b>"; 
 					}
-							
+					
 					else
 					{
 						$form  = "<form action = './login.php' method = 'post'>
-							<table>
-								<tr>
-									<td>Username:</td>
-									<td><input type = 'text' name = 'user' /></td>
-								</tr>
-								<tr>
-									<td>Password:</td>
-									<td><input type = 'password' name = 'password' /></td>
-								</tr>
-								<br>
-								<tr>
+								<table>
+									<tr>
+										<td>Username:</td>
+										<td><input type = 'text' name = 'user' /></td>
+									</tr>
+									<tr>
+										<td>Password:</td>
+										<td><input type = 'password' name = 'password' /></td>
+									</tr>
+									<br>
+									<tr>
 									<td><input type = 'submit' class='fancybutton' name='loginbutton' value='Login' /></td>
 									<br>
 								</tr>
@@ -233,7 +238,8 @@ $datebasePatientFlag = $_SESSION['patientFlag'];
 													$_SESSION['userType'] = $databaseUserType; 
 													$_SESSION['patientFlag'] = $datebasePatientFlag;   
 													$connection->close(); 
-													header('Location: http://localhost/Allograft-Project/index.php'); 
+													echo "Welcome to Ansh-Dann <b>{$databaseUserName}</b>";
+													header("refresh:2; url = index.php"); 
 												}
 												else
 												{
@@ -250,9 +256,10 @@ $datebasePatientFlag = $_SESSION['patientFlag'];
 											$_SESSION['userID'] = $databaseUserID;
 											$_SESSION['patientFlag'] = $datebasePatientFlag; 
 											$connection->close(); 
-											echo "Welcome to Ansh Dann Organ Donation <b>{$username}</b>!";
-											header('Location: http://localhost:3303/Allograft-Project/index.php');
+											echo "Welcome to Ansh-Dann Organ Donation <b>{$username}</b>!";
+											header("refresh:3; url = index.php"); 
 										}
+
 										else
 										{ 
 											echo "Error with password entry. Please try again."; 
