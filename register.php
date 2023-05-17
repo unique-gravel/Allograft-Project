@@ -407,7 +407,7 @@ $datebasePatientFlag = $_SESSION['patientFlag'];
                 <input type="submit" class='fancybutton' name = "submitbutton" value = "Submit">
                 <!-- <button type="submit" name = "submitbutton" value = "Submit">Submit</button> -->
             </form> 
-
+            <p>&nbsp;</p>
             <?php
                 if(isset($_POST['submitbutton']))
                 {	

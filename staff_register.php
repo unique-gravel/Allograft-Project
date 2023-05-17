@@ -440,15 +440,15 @@ $datebasePatientFlag = $_SESSION['patientFlag'];
 											}
 											else if($accountinfo_title === "lung")
 											{
-												$queryInsert3 = mysqli_query($connection, "INSERT INTO accountinfo (addressID, userID, driversLicense, firstName, lastName, title, phoneNumber, email, userType, decisionMakerFlag, liverFlag, heartFlag, lungFlag, kidneyFlag, doctorUserID) VALUES ('$randomAddressID', '$useraccount_userID', '$accountinfo_driverslicense', '$accountinfo_firstname', '$accountinfo_lastname', '$accountinfo_title', '$accountinfo_phone', '$accountinfo_email', 1, FALSE, FALSE, FALSE, TRUE, FALSE, '$accountinfo_doctorUserID')"); 
+												$queryInsert3 = mysqli_query($connection, "INSERT INTO accountinfo (addressID, userID, driversLicense, firstName, lastName, title, phoneNumber, email, userType, decisionMakerFlag, liverFlag, heartFlag, lungFlag, kidneyFlag, doctorUserID) VALUES ('$randomAddressID', '$useraccount_userID', '$accountinfo_driverslicense', '$accountinfo_firstname', '$accountinfo_lastname', '$accountinfo_title', '$accountinfo_phone', '$accountinfo_email', 1, FALSE, FALSE, FALSE, TRUE, FALSE, '$accountinfo_doctorUserID')")or die (mysqli_error($connection));
 											}
 											else if($accountinfo_title === "liver")
 											{
-												$queryInsert3 = mysqli_query($connection, "INSERT INTO accountinfo (addressID, userID, driversLicense, firstName, lastName, title, phoneNumber, email, userType, decisionMakerFlag, liverFlag, heartFlag, lungFlag, kidneyFlag, doctorUserID) VALUES ('$randomAddressID', '$useraccount_userID', '$accountinfo_driverslicense', '$accountinfo_firstname', '$accountinfo_lastname', '$accountinfo_title', '$accountinfo_phone', '$accountinfo_email', 1, FALSE, TRUE, FALSE, FALSE, FALSE, '$accountinfo_doctorUserID')"); 
+												$queryInsert3 = mysqli_query($connection, "INSERT INTO accountinfo (addressID, userID, driversLicense, firstName, lastName, title, phoneNumber, email, userType, decisionMakerFlag, liverFlag, heartFlag, lungFlag, kidneyFlag, doctorUserID) VALUES ('$randomAddressID', '$useraccount_userID', '$accountinfo_driverslicense', '$accountinfo_firstname', '$accountinfo_lastname', '$accountinfo_title', '$accountinfo_phone', '$accountinfo_email', 1, FALSE, TRUE, FALSE, FALSE, FALSE, '$accountinfo_doctorUserID')")or die (mysqli_error($connection));
 											}
 											else
 											{
-												$queryInsert3 = mysqli_query($connection, "INSERT INTO accountinfo (addressID, userID, driversLicense, firstName, lastName, title, phoneNumber, email, userType, decisionMakerFlag, liverFlag, heartFlag, lungFlag, kidneyFlag, doctorUserID) VALUES ('$randomAddressID', '$useraccount_userID', '$accountinfo_driverslicense', '$accountinfo_firstname', '$accountinfo_lastname', '$accountinfo_title', '$accountinfo_phone', '$accountinfo_email', 1, FALSE, FALSE, FALSE, FALSE, TRUE, '$accountinfo_doctorUserID')"); 	
+												$queryInsert3 = mysqli_query($connection, "INSERT INTO accountinfo (addressID, userID, driversLicense, firstName, lastName, title, phoneNumber, email, userType, decisionMakerFlag, liverFlag, heartFlag, lungFlag, kidneyFlag, doctorUserID) VALUES ('$randomAddressID', '$useraccount_userID', '$accountinfo_driverslicense', '$accountinfo_firstname', '$accountinfo_lastname', '$accountinfo_title', '$accountinfo_phone', '$accountinfo_email', 1, FALSE, FALSE, FALSE, FALSE, TRUE, '$accountinfo_doctorUserID')")or die (mysqli_error($connection)); 	
 											}
 												if($queryInsert3)
 												{

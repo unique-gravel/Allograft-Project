@@ -185,7 +185,6 @@ th {
 		<div id="content-wrap" style = "overflow-x:auto;">
 		<p>&nbsp;</p>
 		<?php
-		error_reporting (0); 
 			if($datebasePatientFlag == 1)
 			{
 				require("connect.php");
@@ -329,9 +328,9 @@ th {
 				<?php
 					echo "<b>Welcome, {$username}</b><br>"; 
 					echo "<fieldset>"; 
-					echo "<a href = 'http://localhost:8080/POA_Management.php'> Power of Attorney Management </a><br>";
-					echo "<a href = 'http://localhost:8080/changepassword.php'> Change Password </a><br>"; 
-					echo "<a href = 'http://localhost:8080/deactivate.php'> Deactivate Acount </a><br>";
+					// echo "<a href = 'POA_Management.php'> Power of Attorney Management </a><br>";
+					echo "<a href = 'changepassword.php'> Change Password </a><br>"; 
+					echo "<a href = 'deactivate.php'> Deactivate Acount </a><br>";
 					echo "</fieldset>"; 
 				?>
 			</div>
