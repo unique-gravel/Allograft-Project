@@ -1,5 +1,5 @@
 <?php
-error_reporting (E_ALL); 
+error_reporting (0); 
 session_start(); 
 $userID = $_SESSION['userID'];  
 $username = $_SESSION['username']; 
@@ -290,7 +290,7 @@ $datebasePatientFlag = $_SESSION['patientFlag'];
 				<option value="1936">1936</option>
 				</select> <br> <br> 
 				*Phone Number: <input type="number" name="phone" pattern=".{10,}" maxlength="10"> <br><br>
-				*Driver's License Number: <input type="number" maxlength="13" name="driversLicense"> <br> <br> 
+				*Aadhaar Number: <input type="number" maxlength="13" name="driversLicense"> <br> <br> 
 				*Address 1: <input type="text" name="address1"> <br> <br> 
 				Address 2: <input type="text" name="address2"> <br> <br> 
 				Address 3: <input type="text" name="address3"> <br> <br>	

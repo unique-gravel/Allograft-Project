@@ -299,8 +299,8 @@ $datebasePatientFlag = $_SESSION['patientFlag'];
                     <option value="1937">1937</option>
                     <option value="1936">1936</option>
                     </select> <br> <br> 
-                    *Driver's License Number: <input type="number" maxlength="13" name="driversLicense"> <br><br>
-                    How would you describe your current health? (1 being the best, 3 being below average)<select name="condition">
+                    *Aadhaar Number: <input type="number" maxlength="13" name="driversLicense"> <br><br>
+                    How would you describe your current health? <select name="condition">
                         <option value="1">Great</option>
                         <option value="2">Average</option>
                         <option value="3">Below Average</option>
@@ -517,22 +517,22 @@ $datebasePatientFlag = $_SESSION['patientFlag'];
 
                                                             if($queryInsert3) 
                                                             {
-                                                                if($patientinfo_bloodtype === "O+") {
+                                                                if($patientinfo_bloodtype == "O+") {
                                                                   $score += 50;
                                                                 }
-                                                                else if($patientinfo_bloodtype === "A+") {
+                                                                else if($patientinfo_bloodtype == "A+") {
                                                                   $score += 45;
                                                                 }
-                                                                else if($patientinfo_bloodtype === "B+") {
+                                                                else if($patientinfo_bloodtype == "B+") {
                                                                   $score += 40;
                                                                 }
-                                                                else if($patientinfo_bloodtype === "O-") {
+                                                                else if($patientinfo_bloodtype == "O-") {
                                                                   $score += 35;
                                                                 }
-                                                                else if($patientinfo_bloodtype === "AB+") {
+                                                                else if($patientinfo_bloodtype == "AB+") {
                                                                   $score += 40;
                                                                 }
-                                                                else if($patientinfo_bloodtype === "B-") {
+                                                                else if($patientinfo_bloodtype == "B-") {
                                                                   $score += 35;
                                                                 }
                                                                 else {
