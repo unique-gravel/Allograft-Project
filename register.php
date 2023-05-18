@@ -514,50 +514,48 @@ $datebasePatientFlag = $_SESSION['patientFlag'];
                                                                 $score += 30;
                                                                 $queryInsert3 = mysqli_query($connection, "INSERT INTO patientinfo (userID, addressID, patientType, firstName, lastName, title, phoneNumber, email, driversLicense, decisionMakerFlag, liverFlag, heartFlag, kidneyFlag, lungFlag, available, bloodType, height, weight, dob, doctorUserID, patientCond, active) VALUES ('$useraccount_userID', '$randomAddressID', '$patientinfo_patienttype', '$patientinfo_firstname', '$patientinfo_lastname', 'kidney', '$patientinfo_phone', '$patientinfo_email', '$patientinfo_driverslicense', FALSE, FALSE, FALSE, TRUE, FALSE, TRUE, '$patientinfo_bloodtype', '$patientinfo_height', '$patientinfo_weight', '$patientinfo_dob', '9477ranko123aMmeN', '$patientinfo_condition', 1)"); 
                                                             }
-
-                                                            if($queryInsert3) 
-                                                            {
-                                                                if($patientinfo_bloodtype == "O+") {
-                                                                  $score += 50;
-                                                                }
-                                                                else if($patientinfo_bloodtype == "A+") {
-                                                                  $score += 45;
-                                                                }
-                                                                else if($patientinfo_bloodtype == "B+") {
-                                                                  $score += 40;
-                                                                }
-                                                                else if($patientinfo_bloodtype == "O-") {
-                                                                  $score += 35;
-                                                                }
-                                                                else if($patientinfo_bloodtype == "AB+") {
-                                                                  $score += 40;
-                                                                }
-                                                                else if($patientinfo_bloodtype == "B-") {
-                                                                  $score += 35;
-                                                                }
-                                                                else {
-                                                                  $score += 30;
-                                                                }
-
-                                                                if($ageOfPatient >= 18 && $ageOfPatient < 30) {
-                                                                  $score += 50;
-                                                                }
-                                                                else if($ageOfPatient >= 30 && $ageOfPatient < 45) {
-                                                                  $score += 40;
-                                                                }
-                                                                else if($ageOfPatient >= 45 && $ageOfPatient < 60) {
-                                                                  $score += 30;
-                                                                }
-                                                                else {
-                                                                  $score += 20;
-                                                                }
-                                                                if($patientinfo_patienttype == 2) {
-                                                                    $queryInsert4 = mysqli_query($connection, "INSERT INTO waitlist VALUES ($useraccount_userID, $score) ");
-                                                                }
-                                                            }
                                                         
-                                                            if($queryInsert4)
+                                                            if($queryInsert3)
                                                             {
+                                                              if($patientinfo_bloodtype == "O+") {
+                                                                $score += 50;
+                                                              }
+                                                              else if($patientinfo_bloodtype == "A+") {
+                                                                $score += 45;
+                                                              }
+                                                              else if($patientinfo_bloodtype == "B+") {
+                                                                $score += 40;
+                                                              }
+                                                              else if($patientinfo_bloodtype == "O-") {
+                                                                $score += 35;
+                                                              }
+                                                              else if($patientinfo_bloodtype == "AB+") {
+                                                                $score += 40;
+                                                              }
+                                                              else if($patientinfo_bloodtype == "B-") {
+                                                                $score += 35;
+                                                              }
+                                                              else {
+                                                                $score += 30;
+                                                              }
+
+                                                              if($ageOfPatient >= 18 && $ageOfPatient < 30) {
+                                                                $score += 50;
+                                                              }
+                                                              else if($ageOfPatient >= 30 && $ageOfPatient < 45) {
+                                                                $score += 40;
+                                                              }
+                                                              else if($ageOfPatient >= 45 && $ageOfPatient < 60) {
+                                                                $score += 30;
+                                                              }
+                                                              else {
+                                                                $score += 20;
+                                                              }
+
+                                                              if($patientinfo_patienttype === 2) {
+                                                                $queryInsert4 = mysqli_query($connection, "INSERT INTO waitlist VALUES ('$useraccount_userID', '$score') ");
+                                                              }
+
                                                                 do{
                                                                 $patientinfo_poaID = rand(0, 9999); 
                                                                 $query = mysqli_query($connection, "SELECT poaID FROM powerofattorney WHERE powerofattorney.poaID = '$patientinfo_poaID'"); 
@@ -566,7 +564,7 @@ $datebasePatientFlag = $_SESSION['patientFlag'];
                                                                 
                                                                 $queryInsert4 = mysqli_query($connection, "INSERT INTO powerofattorney(poaID, userID, firstName, lastName, phoneNumber, email) VALUES ('$patientinfo_poaID', '$useraccount_userID', '$patientinfo_poafirstname', '$patientinfo_poalastname', '$patientinfo_poaphone', '$patientinfo_poaemail')"); 
                                                                 
-                                                                if($queryInsert4)
+                                                                if($queryInsert3)
                                                                 {
                                                                     require 'PHPMailerAutoload.php';
                                                                     $mail = new PHPMailer;
@@ -634,49 +632,48 @@ $datebasePatientFlag = $_SESSION['patientFlag'];
                                                                 $queryInsert3 = mysqli_query($connection, "INSERT INTO patientinfo (userID, addressID, patientType, firstName, lastName, title, phoneNumber, email, driversLicense, decisionMakerFlag, liverFlag, heartFlag, kidneyFlag, lungFlag, available, bloodType, height, weight, dob, doctorUserID, patientCond, active) VALUES ('$useraccount_userID', '$randomAddressID', '$patientinfo_patienttype', '$patientinfo_firstname', '$patientinfo_lastname', 'kidney', '$patientinfo_phone', '$patientinfo_email', '$patientinfo_driverslicense', FALSE, FALSE, FALSE, TRUE, FALSE, TRUE, '$patientinfo_bloodtype', '$patientinfo_height', '$patientinfo_weight', '$patientinfo_dob', '9477ranko123aMmeN', '$patientinfo_condition', 1)"); 
                                                             }
 
-                                                            if($queryInsert3) 
-                                                            {
-                                                                if($patientinfo_bloodtype === "O+") {
-                                                                  $score += 50;
-                                                                }
-                                                                else if($patientinfo_bloodtype === "A+") {
-                                                                  $score += 45;
-                                                                }
-                                                                else if($patientinfo_bloodtype === "B+") {
-                                                                  $score += 40;
-                                                                }
-                                                                else if($patientinfo_bloodtype === "O-") {
-                                                                  $score += 35;
-                                                                }
-                                                                else if($patientinfo_bloodtype === "AB+") {
-                                                                  $score += 40;
-                                                                }
-                                                                else if($patientinfo_bloodtype === "B-") {
-                                                                  $score += 35;
-                                                                }
-                                                                else {
-                                                                  $score += 30;
-                                                                }
 
-                                                                if($ageOfPatient >= 18 && $ageOfPatient < 30) {
-                                                                  $score += 50;
-                                                                }
-                                                                else if($ageOfPatient >= 30 && $ageOfPatient < 45) {
-                                                                  $score += 40;
-                                                                }
-                                                                else if($ageOfPatient >= 45 && $ageOfPatient < 60) {
-                                                                  $score += 30;
-                                                                }
-                                                                else {
-                                                                  $score += 20;
-                                                                }
-
-                                                                if($patientinfo_patienttype == 2) {
-                                                                  $queryInsert4 = mysqli_query($connection, "INSERT INTO waitlist VALUES ($useraccount_userID, $score) ");
-                                                              }                                                            }
                                                             
-                                                            if($queryInsert4)
+                                                            if($queryInsert3)
                                                             {
+                                                              if($patientinfo_bloodtype === "O+") {
+                                                                $score += 50;
+                                                              }
+                                                              else if($patientinfo_bloodtype === "A+") {
+                                                                $score += 45;
+                                                              }
+                                                              else if($patientinfo_bloodtype === "B+") {
+                                                                $score += 40;
+                                                              }
+                                                              else if($patientinfo_bloodtype === "O-") {
+                                                                $score += 35;
+                                                              }
+                                                              else if($patientinfo_bloodtype === "AB+") {
+                                                                $score += 40;
+                                                              }
+                                                              else if($patientinfo_bloodtype === "B-") {
+                                                                $score += 35;
+                                                              }
+                                                              else {
+                                                                $score += 30;
+                                                              }
+
+                                                              if($ageOfPatient >= 18 && $ageOfPatient < 30) {
+                                                                $score += 50;
+                                                              }
+                                                              else if($ageOfPatient >= 30 && $ageOfPatient < 45) {
+                                                                $score += 40;
+                                                              }
+                                                              else if($ageOfPatient >= 45 && $ageOfPatient < 60) {
+                                                                $score += 30;
+                                                              }
+                                                              else {
+                                                                $score += 20;
+                                                              }
+
+                                                              if($patientinfo_patienttype === 2) {
+                                                                $queryInsert4 = mysqli_query($connection, "INSERT INTO waitlist VALUES ('$useraccount_userID', '$score') ");
+                                                              } 
                                                                 require 'PHPMailerAutoload.php';
                                                                 $mail = new PHPMailer;
 
@@ -717,7 +714,8 @@ $datebasePatientFlag = $_SESSION['patientFlag'];
                                                         
                                                     
                                                 }
-                                                else "Error: record not account info not recorded."; 
+                                                else 
+                                                  echo "Error: record not account info not recorded."; 
                                             }
                                             else
                                                 echo "Error: record not recorded correctly.";
