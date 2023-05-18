@@ -435,19 +435,23 @@ $datebasePatientFlag = $_SESSION['patientFlag'];
 											require("connect.php");
 											if($accountinfo_title === "heart")
 											{
+												$queryInsert4 = mysqli_query($connection, "UPDATE TABLE patientinfo SET doctorUserID = '$accountinfo_doctorUserID' WEHRE accountinfo.heartFlag = 1");
 												$queryInsert3 = mysqli_query($connection, "INSERT INTO accountinfo (addressID, userID, driversLicense, firstName, lastName, title, phoneNumber, email, userType, decisionMakerFlag, liverFlag, heartFlag, lungFlag, kidneyFlag, doctorUserID) VALUES ('$randomAddressID', '$useraccount_userID', '$accountinfo_driverslicense', '$accountinfo_firstname', '$accountinfo_lastname', '$accountinfo_title', '$accountinfo_phone', '$accountinfo_email', 1, FALSE, FALSE, TRUE, FALSE, FALSE, '$accountinfo_doctorUserID')")or die (mysqli_error($connection));
 												
 											}
 											else if($accountinfo_title === "lung")
 											{
+												$queryInsert4 = mysqli_query($connection, "UPDATE TABLE patientinfo SET doctorUserID = '$accountinfo_doctorUserID' WEHRE accountinfo.lungFlag = 1");
 												$queryInsert3 = mysqli_query($connection, "INSERT INTO accountinfo (addressID, userID, driversLicense, firstName, lastName, title, phoneNumber, email, userType, decisionMakerFlag, liverFlag, heartFlag, lungFlag, kidneyFlag, doctorUserID) VALUES ('$randomAddressID', '$useraccount_userID', '$accountinfo_driverslicense', '$accountinfo_firstname', '$accountinfo_lastname', '$accountinfo_title', '$accountinfo_phone', '$accountinfo_email', 1, FALSE, FALSE, FALSE, TRUE, FALSE, '$accountinfo_doctorUserID')")or die (mysqli_error($connection));
 											}
 											else if($accountinfo_title === "liver")
 											{
+												$queryInsert4 = mysqli_query($connection, "UPDATE TABLE patientinfo SET doctorUserID = '$accountinfo_doctorUserID' WEHRE accountinfo.livertFlag = 1");
 												$queryInsert3 = mysqli_query($connection, "INSERT INTO accountinfo (addressID, userID, driversLicense, firstName, lastName, title, phoneNumber, email, userType, decisionMakerFlag, liverFlag, heartFlag, lungFlag, kidneyFlag, doctorUserID) VALUES ('$randomAddressID', '$useraccount_userID', '$accountinfo_driverslicense', '$accountinfo_firstname', '$accountinfo_lastname', '$accountinfo_title', '$accountinfo_phone', '$accountinfo_email', 1, FALSE, TRUE, FALSE, FALSE, FALSE, '$accountinfo_doctorUserID')")or die (mysqli_error($connection));
 											}
 											else
 											{
+												$queryInsert4 = mysqli_query($connection, "UPDATE TABLE patientinfo SET doctorUserID = '$accountinfo_doctorUserID' WEHRE accountinfo.kidneyFlag = 1");
 												$queryInsert3 = mysqli_query($connection, "INSERT INTO accountinfo (addressID, userID, driversLicense, firstName, lastName, title, phoneNumber, email, userType, decisionMakerFlag, liverFlag, heartFlag, lungFlag, kidneyFlag, doctorUserID) VALUES ('$randomAddressID', '$useraccount_userID', '$accountinfo_driverslicense', '$accountinfo_firstname', '$accountinfo_lastname', '$accountinfo_title', '$accountinfo_phone', '$accountinfo_email', 1, FALSE, FALSE, FALSE, FALSE, TRUE, '$accountinfo_doctorUserID')")or die (mysqli_error($connection)); 	
 											}
 												if($queryInsert3)

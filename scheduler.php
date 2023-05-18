@@ -6,6 +6,7 @@ $username = $_SESSION['username'];
 $databaseTitle = $_SESSION['title']; 
 $databaseUserType = $_SESSION['userType']; 
 $datebasePatientFlag = $_SESSION['patientFlag']; 
+$randscheduleID = $_SESSION['scheduleID'] 
 ?>
 
 <!DOCTYPE html>
@@ -174,6 +175,7 @@ th {
     background-color: #E6211E;
     color: white;
 }
+
 </style>
 	<p>&nbsp;</p>
 	<div class = "priority" align = "center">

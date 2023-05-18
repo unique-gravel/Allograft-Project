@@ -54,7 +54,7 @@ $datebasePatientFlag = $_SESSION['patientFlag'];
       integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
       crossorigin="anonymous"
     ></script>
-  </head>
+</head>
 
 <body>
       <!-- Nav Bar -->
@@ -214,7 +214,7 @@ th {
 				if($sortVariable == 7)
 				{
 					echo "<b>Donors</b>"; 
-					$donorQuery = mysqli_query($connection, "SELECT useraccount.userName AS 'Username', patientinfo.firstName AS 'First Name', patientinfo.lastName AS 'Last Name', patientinfo.email AS 'Email', patientinfo.bloodType AS 'Blood Type', patientinfo.title AS 'Organ' FROM patientinfo, useraccount, accountinfo WHERE patientType = 1 AND patientinfo.userID = useraccount.userID AND patientinfo.doctorUserID = accountinfo.doctorUserID AND patientinfo.available = 1 AND useraccount.active = 1 AND patientinfo.title = '$databaseTitle' AND accountinfo.userID = '$userID' ORDER BY 6 $orderVariable"); 
+					$donorQuery = mysqli_query($connection, "SELECT useraccount.userName AS 'Username', patientinfo.firstName AS 'First Name', patientinfo.lastName AS 'Last Name', patientinfo.email AS 'Email', patientinfo.bloodType AS 'Blood Type', patientinfo.title AS 'Organ' FROM patientinfo, useraccount, accountinfo WHERE patientType = 1 AND patientinfo.userID = useraccount.userID AND patientinfo.doctorUserID = accountinfo.doctorUserID AND patientinfo.active = 1 AND useraccount.active = 1 AND patientinfo.title = '$databaseTitle' AND accountinfo.userID = '$userID' ORDER BY 6 $orderVariable"); 
 					
 					echo "<table>"; // start a table tag in the HTML
 					echo "<tr> <th>Username</th> <th>First Name</th> <th>Last Name</th> <th>Email</th> <th>Blood Type</th> <th>Organ</th> <tr> "; 
@@ -227,7 +227,7 @@ th {
 				else
 				{
 					echo "<b>Donors</b>"; 
-					$donorQuery = mysqli_query($connection, "SELECT useraccount.userName AS 'Username', patientinfo.firstName AS 'First Name', patientinfo.lastName AS 'Last Name', patientinfo.email AS 'Email', patientinfo.bloodType AS 'Blood Type', patientinfo.title AS 'Organ' FROM patientinfo, useraccount, accountinfo WHERE patientType = 1 AND patientinfo.userID = useraccount.userID AND patientinfo.doctorUserID = accountinfo.doctorUserID AND patientinfo.available = 1 AND useraccount.active = 1 AND patientinfo.title = '$databaseTitle' AND accountinfo.userID = '$userID' ORDER BY $sortVariable $orderVariable"); 
+					$donorQuery = mysqli_query($connection, "SELECT useraccount.userName AS 'Username', patientinfo.firstName AS 'First Name', patientinfo.lastName AS 'Last Name', patientinfo.email AS 'Email', patientinfo.bloodType AS 'Blood Type', patientinfo.title AS 'Organ' FROM patientinfo, useraccount, accountinfo WHERE patientType = 1 AND patientinfo.userID = useraccount.userID AND patientinfo.doctorUserID = accountinfo.doctorUserID AND patientinfo.active = 1 AND useraccount.active = 1 AND patientinfo.title = '$databaseTitle' AND accountinfo.userID = '$userID' ORDER BY $sortVariable $orderVariable"); 
 					
 					echo "<table>"; // start a table tag in the HTML
 					echo "<tr> <th>Username</th> <th>First Name</th> <th>Last Name</th> <th>Email</th> <th>Blood Type</th> <th>Organ</th> <tr> "; 
@@ -239,7 +239,7 @@ th {
 				}
 				
 				echo "<b>Recipient Waitlist</b>";
-				$queryRecipients = mysqli_query($connection, "SELECT useraccount.userName AS 'Username', patientinfo.firstName AS 'First Name', patientinfo.lastName AS 'Last Name', patientinfo.email AS 'Email', patientinfo.bloodType AS 'Blood Type', patientinfo.title AS 'Organ', waitlist.Score AS 'Score' FROM useraccount, patientinfo, waitlist, accountinfo WHERE useraccount.active = 1 AND patientinfo.patientType = 2 AND patientinfo.available = 1 AND useraccount.userID = patientinfo.userID AND patientinfo.userID = waitlist.userID AND patientinfo.title = '$databaseTitle' AND patientinfo.doctorUserID = accountinfo.doctorUserID AND accountinfo.userID = '$userID' AND accountinfo.userID = '$userID' ORDER BY $sortVariable $orderVariable"); 
+				$queryRecipients = mysqli_query($connection, "SELECT useraccount.userName AS 'Username', patientinfo.firstName AS 'First Name', patientinfo.lastName AS 'Last Name', patientinfo.email AS 'Email', patientinfo.bloodType AS 'Blood Type', patientinfo.title AS 'Organ', waitlist.Score AS 'Score' FROM useraccount, patientinfo, waitlist, accountinfo WHERE useraccount.active = 1 AND patientinfo.patientType = 2 AND patientinfo.active = 1 AND useraccount.userID = patientinfo.userID AND patientinfo.userID = waitlist.userID AND patientinfo.title = '$databaseTitle' AND patientinfo.doctorUserID = accountinfo.doctorUserID AND accountinfo.userID = '$userID' AND accountinfo.userID = '$userID' ORDER BY $sortVariable $orderVariable"); 
 				echo "<table>"; // start a table tag in the HTML
 				echo "<tr> <th>Username</th> <th>First Name</th> <th>Last Name</th> <th>Email</th> <th>Blood Type</th> <th>Organ</th> <th>Score</th> <tr> "; 
 				while($recipientRow = mysqli_fetch_array($queryRecipients))
@@ -256,7 +256,7 @@ th {
 				
 				if($donorVariable && $recipientVariable)
 				{
-					$checkPatient = mysqli_query($connection, "SELECT DISTINCT patientinfo.userID AS 'userID', patientinfo.title AS 'title', patientinfo.bloodType AS 'bloodType' FROM patientinfo, useraccount WHERE '$donorVariable' = useraccount.userName AND useraccount.userID = patientinfo.userID AND patientinfo.available = 1 AND patientinfo.patientType = 1 AND useraccount.active = 1"); 
+					$checkPatient = mysqli_query($connection, "SELECT DISTINCT patientinfo.userID AS 'userID', patientinfo.title AS 'title', patientinfo.bloodType AS 'bloodType' FROM patientinfo, useraccount WHERE '$donorVariable' = useraccount.userName AND useraccount.userID = patientinfo.userID AND patientinfo.active = 1 AND patientinfo.patientType = 1 AND useraccount.active = 1"); 
 					$numberOfSelectRows = mysqli_num_rows($checkPatient); 
 					if($numberOfSelectRows == 1)
 					{
@@ -264,7 +264,7 @@ th {
 						$donorUser = $row['userID']; 
 						$donorBlood = $row['bloodType'];
 						$donorOrgan = $row['title'];
-						$checkrRecipientPatient = mysqli_query($connection, "SELECT DISTINCT patientinfo.userID AS 'userID', patientinfo.title AS 'title', patientinfo.bloodType AS 'bloodType' FROM patientinfo, useraccount WHERE '$recipientVariable' = useraccount.userName AND useraccount.userID = patientinfo.userID AND patientinfo.available = 1 AND patientinfo.patientType = 2 AND useraccount.active = 1"); 
+						$checkrRecipientPatient = mysqli_query($connection, "SELECT DISTINCT patientinfo.userID AS 'userID', patientinfo.title AS 'title', patientinfo.bloodType AS 'bloodType' FROM patientinfo, useraccount WHERE '$recipientVariable' = useraccount.userName AND useraccount.userID = patientinfo.userID AND patientinfo.active = 1 AND patientinfo.patientType = 2 AND useraccount.active = 1"); 
 						$numberOfSelectRows = mysqli_num_rows($checkrRecipientPatient); 
 						if($numberOfSelectRows == 1)
 						{
@@ -325,7 +325,7 @@ th {
 			else 
 			{ 
 				echo "<b>Donors</b>";
-				$query = mysqli_query($connection, "SELECT useraccount.userName AS 'Username', patientinfo.firstName AS 'First Name', patientinfo.lastName AS 'Last Name', patientinfo.email AS 'Email', patientinfo.bloodType AS 'Blood Type', patientinfo.title AS 'Organ' FROM patientinfo, useraccount, accountinfo WHERE patientType = 1 AND patientinfo.userID = useraccount.userID AND patientinfo.doctorUserID = accountinfo.doctorUserID AND patientinfo.available = 1 AND useraccount.active = 1 AND patientinfo.title = '$databaseTitle' AND accountinfo.userID = '$userID'"); 
+				$query = mysqli_query($connection, "SELECT useraccount.userName AS 'Username', patientinfo.firstName AS 'First Name', patientinfo.lastName AS 'Last Name', patientinfo.email AS 'Email', patientinfo.bloodType AS 'Blood Type', patientinfo.title AS 'Organ' FROM patientinfo, useraccount, accountinfo WHERE patientType = 1 AND patientinfo.userID = useraccount.userID AND patientinfo.doctorUserID = accountinfo.doctorUserID AND patientinfo.active = 1 AND useraccount.active = 1 AND patientinfo.title = '$databaseTitle' AND accountinfo.userID = '$userID'"); 
 				
 				echo "<table>"; // start a table tag in the HTML
 				echo "<tr> <th>Username</th> <th>First Name</th> <th>Last Name</th> <th>Email</th> <th>Blood Type</th> <th>Organ</th> </tr> "; 
@@ -336,7 +336,7 @@ th {
 				echo "</table><br><br>"; //Close the table in HTML 
 				
 				echo "<b>Recipient Waitlist</b>";
-				$queryRecipients = mysqli_query($connection, "SELECT useraccount.userName AS 'Username', patientinfo.firstName AS 'First Name', patientinfo.lastName AS 'Last Name', patientinfo.email AS 'Email', patientinfo.bloodType AS 'Blood Type', patientinfo.title AS 'Organ', waitlist.Score AS 'Score' FROM useraccount, patientinfo, waitlist, accountinfo WHERE useraccount.active = 1 AND patientinfo.patientType = 2 AND patientinfo.available = 1 AND useraccount.userID = patientinfo.userID AND patientinfo.userID = waitlist.userID AND patientinfo.title = '$databaseTitle' AND patientinfo.doctorUserID = accountinfo.doctorUserID AND accountinfo.userID = '$userID' ORDER BY 6 ASC"); 
+				$queryRecipients = mysqli_query($connection, "SELECT useraccount.userName AS 'Username', patientinfo.firstName AS 'First Name', patientinfo.lastName AS 'Last Name', patientinfo.email AS 'Email', patientinfo.bloodType AS 'Blood Type', patientinfo.title AS 'Organ', waitlist.Score AS 'Score' FROM useraccount, patientinfo, waitlist, accountinfo WHERE useraccount.active = 1 AND patientinfo.patientType = 2 AND patientinfo.active = 1 AND useraccount.userID = patientinfo.userID AND patientinfo.userID = waitlist.userID AND patientinfo.title = '$databaseTitle' AND patientinfo.doctorUserID = accountinfo.doctorUserID AND accountinfo.userID = '$userID' ORDER BY 6 ASC"); 
 				echo "<table>"; // start a table tag in the HTML
 				echo "<tr> <th>Username</th> <th>First Name</th> <th>Last Name</th> <th>Email</th> <th>Blood Type</th> <th>Organ</th> <th>Score</th> </tr> "; 
 				while($recipientRow = mysqli_fetch_array($queryRecipients))
@@ -350,8 +350,9 @@ th {
 			</div>
 		</div>
 		</div>
+		<p>&nbsp;</p>
+		<!-- <footer>
+		<p class="footer1">AnshDaan - Give The Gift of Life</p>
+	</footer> -->
 	</body>
-	<footer>
-      <p class="footer">AnshDaan - Give The Gift of Life</p>
-    </footer>
 </html>
